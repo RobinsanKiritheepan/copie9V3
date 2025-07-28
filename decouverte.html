@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Découverte – Copie Courneuve9</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Styles spécifiques à la page Découverte */
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        /* Container pour le fil de découverte. Utilise scroll-snap pour un effet « reel ». */
+        #reelContainer {
+            /* Permet au fil de s'étirer sur toute la page. Le scroll sera géré par la page elle‑même. */
+            scroll-snap-type: y mandatory;
+        }
+        .reel-item {
+            scroll-snap-align: start;
+            min-height: 80vh;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            color: #fff;
+        }
+        .reel-overlay {
+            background: rgba(0, 0, 0, 0.55);
+            padding: 1rem;
+            width: 100%;
+        }
+        .reel-overlay h3 {
+            margin-bottom: 0.5rem;
+        }
+        .reel-overlay p {
+            margin-bottom: 0.25rem;
+        }
+        .reel-actions {
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+        .reel-actions span {
+            margin-right: 1rem;
+            cursor: pointer;
+        }
+
+        /* Agrandit le bouton « like » pour faciliter le clic */
+        .like-btn {
+            font-size: 1.5rem;
+            line-height: 1;
+            margin-right: 0.5rem;
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            color: #e74c3c; /* couleur rouge pour l’icône de like */
+        }
+        /* Style pour le titre de la section */
+        .decouverte-title {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+        }
+        .header-image {
+            position: relative;
+            height: 50vh;
+            background-image: url('decouverte_header.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Copie Courneuve9</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="nos_produits.html">Nos Produits</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="copie.html">Copie la Courneuve</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="devis.html">Demande Devis</a>
+                </li>
+                <!-- Lien actif vers la page Découverte -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="decouverte.html">Découverte <span class="sr-only">(actuel)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin.html">Admin</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Image d'en-tête avec titre -->
+    <div class="header-image">
+        <div class="text-center text-white">
+            <h1 class="display-4">Découverte</h1>
+            <p class="lead">Découvrez nos services comme sur les réseaux sociaux</p>
+        </div>
+    </div>
+
+    <!-- Section Reels -->
+    <section class="container-fluid p-0">
+        <!-- Conteneur dynamique : les éléments seront générés par JavaScript -->
+        <div id="reelContainer"></div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer class="text-center py-4 bg-light">
+        <p>&copy; 2024‑2025 Copie Courneuve9. Tous droits réservés.</p>
+        <p>Email : <a href="mailto:copie93120@gmail.com">copie93120@gmail.com</a></p>
+        <p>Téléphone : <a href="tel:+33773006663">07&nbsp;73&nbsp;00&nbsp;66&nbsp;63</a></p>
+    </footer>
+
+    <!-- Scripts Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Mode admin et chatbot -->
+    <script src="admin.js"></script>
+    <script src="chatbot.js"></script>
+    
+    <!-- Script dynamique pour générer les reels et gérer les likes -->
+    <script>
+    // Génération dynamique des items et système de likes persistants
+    document.addEventListener('DOMContentLoaded', function () {
+        const container = document.getElementById('reelContainer');
+        // Récupérer les compteurs de likes depuis le stockage local (clé : reelLikes)
+        const likeStore = JSON.parse(localStorage.getItem('reelLikes') || '{}');
+        // Liste de tous les produits et services à afficher
+        const items = [
+            {
+                id: 'photocopie',
+                title: 'Photocopie Rapide',
+                desc: 'Photocopies de haute qualité pour tous vos documents.',
+                price: '0,10 € par page',
+                image: 'service1.png',
+                link: 'index.html'
+            },
+            {
+                id: 'impression',
+                title: 'Impression Premium',
+                desc: 'Impressions couleur et noir et blanc, papier haute qualité.',
+                price: '0,20 € par page',
+                image: 'service2.png',
+                link: 'impression.html'
+            },
+            {
+                id: 'numerisation',
+                title: 'Numérisation Express',
+                desc: 'Numérisez vos documents rapidement et envoyez-les par email.',
+                price: '0,15 € par page',
+                image: 'service3.png',
+                link: 'nos_produits.html'
+            },
+            {
+                id: 'chemise_rabat',
+                title: 'Chemise à Rabat',
+                desc: 'Chemises à rabat personnalisées pour organiser vos documents.',
+                price: '20 €',
+                image: 'photo1.png',
+                link: 'impression_chemise_rabat.html'
+            }
+        ];
+        // Initialiser les compteurs pour chaque élément si absent
+        items.forEach(item => {
+            if (!(item.id in likeStore)) {
+                likeStore[item.id] = 0;
+            }
+        });
+        // Fonction de rendu et de tri
+        function renderItems() {
+            // Réinitialiser le conteneur
+            container.innerHTML = '';
+            // Trier par nombre de likes décroissants
+            const sorted = [...items].sort((a, b) => likeStore[b.id] - likeStore[a.id]);
+            sorted.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'reel-item';
+                div.style.backgroundImage = 'url(' + item.image + ')';
+                // Construire le contenu HTML de l’item
+                div.innerHTML =
+                    '<div class="reel-overlay">' +
+                        '<h3>' + item.title + '</h3>' +
+                        '<p>' + item.desc + '</p>' +
+                        '<p><strong>Prix&nbsp;:</strong> ' + item.price + '</p>' +
+                        '<div class="reel-actions d-flex align-items-center">' +
+                            '<button type="button" class="like-btn mr-1" data-id="' + item.id + '">❤️</button>' +
+                            '<span class="like-count" data-id="' + item.id + '">' + likeStore[item.id] + '</span>' +
+                            '<a href="' + item.link + '" class="btn btn-light btn-sm ml-3">Voir plus</a>' +
+                        '</div>' +
+                    '</div>';
+                container.appendChild(div);
+            });
+            // Ajouter les gestionnaires d’événements pour les likes
+            container.querySelectorAll('.like-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const id = this.getAttribute('data-id');
+                    likeStore[id] = (likeStore[id] || 0) + 1;
+                    localStorage.setItem('reelLikes', JSON.stringify(likeStore));
+                    renderItems();
+                });
+            });
+        }
+        // Enregistrer la configuration initiale
+        localStorage.setItem('reelLikes', JSON.stringify(likeStore));
+        // Premier rendu
+        renderItems();
+    });
+    </script>
+</body>
+</html>

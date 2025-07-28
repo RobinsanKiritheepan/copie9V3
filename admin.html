@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion Admin – Copie Courneuve9</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Copie Courneuve9</a>
+    </nav>
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Connexion administrateur</h2>
+        <form id="loginForm" class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" class="form-control" id="password" placeholder="Entrez le mot de passe" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
+        </form>
+        <div id="errorMsg" class="alert alert-danger mt-3 d-none" role="alert"></div>
+    </div>
+    <script>
+    /*
+     * Gestion de la connexion administrateur :
+     * - Le mot de passe par défaut est « admin123 ».
+     * - Si l'utilisateur a déjà modifié son mot de passe via l'interface
+     *   d'administration, la valeur est stockée dans localStorage sous la
+     *   clé « adminPassword ». Ce script récupère la valeur enregistrée
+     *   et la compare au mot de passe saisi. En cas de succès, la session
+     *   administrateur est activée (clé « isAdmin » dans localStorage) et
+     *   l'utilisateur est redirigé vers la page d'accueil.
+     */
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const pwd = document.getElementById('password').value;
+        const errorMsg = document.getElementById('errorMsg');
+        // Récupérer le mot de passe enregistré ou utiliser la valeur par défaut
+        const savedPwd = localStorage.getItem('adminPassword') || 'admin123';
+        if (pwd === savedPwd) {
+            localStorage.setItem('isAdmin', 'true');
+            window.location.href = 'index.html';
+        } else {
+            errorMsg.textContent = 'Mot de passe incorrect.';
+            errorMsg.classList.remove('d-none');
+        }
+    });
+    </script>
+</body>
+</html>
