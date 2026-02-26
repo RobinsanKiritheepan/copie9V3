@@ -1,16 +1,17 @@
 // Script du chatbot simple
 // Ce module injecte un bouton de chat et une fenêtre de conversation dans les
-// pages du site. Les réponses sont basées sur des phrases clés très
-// générales pour offrir une aide rapide aux visiteurs. Aucune requête vers
-// un service externe n'est effectuée.
+// pages du site. Les réponses sont basées sur des phrases clés pour offrir
+// une aide rapide aux visiteurs. Aucune requête vers un service externe n'est effectuée.
 
 (function() {
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', function() {
     // Création du bouton de bascule du chat
-    const toggleBtn = document.createElement('button');
+    var toggleBtn = document.createElement('button');
     toggleBtn.id = 'chatToggleBtn';
-    toggleBtn.textContent = 'Chat';
-    // Style du bouton: position fixed en bas à droite
+    toggleBtn.setAttribute('aria-label', 'Ouvrir le chat d\'assistance');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    toggleBtn.setAttribute('aria-controls', 'chatWindow');
+    toggleBtn.innerHTML = '💬';
     Object.assign(toggleBtn.style, {
       position: 'fixed',
       bottom: '20px',
@@ -22,15 +23,27 @@
       borderRadius: '50%',
       width: '60px',
       height: '60px',
-      fontSize: '14px',
+      fontSize: '1.4rem',
       cursor: 'pointer',
-      boxShadow: '0 2px 6px rgba(0,0,0,0.3)'
+      boxShadow: '0 4px 12px rgba(0,0,0,0.25)',
+      transition: 'transform .2s ease, box-shadow .2s ease'
+    });
+    toggleBtn.addEventListener('mouseenter', function() {
+      toggleBtn.style.transform = 'scale(1.1)';
+      toggleBtn.style.boxShadow = '0 6px 18px rgba(0,0,0,0.3)';
+    });
+    toggleBtn.addEventListener('mouseleave', function() {
+      toggleBtn.style.transform = 'scale(1)';
+      toggleBtn.style.boxShadow = '0 4px 12px rgba(0,0,0,0.25)';
     });
     document.body.appendChild(toggleBtn);
 
-    // Création de la fenêtre de chat améliorée
-    const chatWindow = document.createElement('div');
+    // Création de la fenêtre de chat
+    var chatWindow = document.createElement('div');
     chatWindow.id = 'chatWindow';
+    chatWindow.setAttribute('role', 'dialog');
+    chatWindow.setAttribute('aria-modal', 'false');
+    chatWindow.setAttribute('aria-label', 'Chat d\'assistance Copie Courneuve9');
     Object.assign(chatWindow.style, {
       position: 'fixed',
       bottom: '100px',
@@ -38,102 +51,120 @@
       width: '350px',
       height: '450px',
       backgroundColor: '#fff',
-      border: '1px solid #ccc',
-      borderRadius: '8px',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.3)',
+      border: 'none',
+      borderRadius: '12px',
+      boxShadow: '0 8px 30px rgba(0,0,0,0.2)',
       display: 'none',
       flexDirection: 'column',
       overflow: 'hidden',
       zIndex: '1060'
     });
-    // En‑tête du chat avec titre et bouton de fermeture
-    const header = document.createElement('div');
-    header.style.backgroundColor = '#007bff';
-    header.style.color = '#fff';
-    header.style.padding = '8px 12px';
-    header.style.fontWeight = 'bold';
-    header.style.display = 'flex';
-    header.style.justifyContent = 'space-between';
-    header.style.alignItems = 'center';
-    header.textContent = 'Chat';
-    const closeIcon = document.createElement('span');
-    closeIcon.textContent = '×';
-    closeIcon.style.cursor = 'pointer';
-    closeIcon.style.fontSize = '1.2rem';
-    closeIcon.addEventListener('click', () => {
-      chatWindow.style.display = 'none';
+
+    // En-tête du chat
+    var header = document.createElement('div');
+    Object.assign(header.style, {
+      backgroundColor: '#007bff',
+      color: '#fff',
+      padding: '12px 14px',
+      fontWeight: 'bold',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      fontSize: '1rem'
     });
-    header.appendChild(closeIcon);
+    var headerTitle = document.createElement('span');
+    headerTitle.textContent = '💬 Assistance Copie Courneuve9';
+    var closeBtn = document.createElement('button');
+    closeBtn.setAttribute('aria-label', 'Fermer le chat');
+    closeBtn.textContent = '×';
+    Object.assign(closeBtn.style, {
+      background: 'none',
+      border: 'none',
+      color: '#fff',
+      fontSize: '1.4rem',
+      cursor: 'pointer',
+      lineHeight: '1',
+      padding: '0 2px'
+    });
+    closeBtn.addEventListener('click', function() {
+      chatWindow.style.display = 'none';
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    });
+    header.appendChild(headerTitle);
+    header.appendChild(closeBtn);
     chatWindow.appendChild(header);
+
     // Conteneur des messages
-    const messagesDiv = document.createElement('div');
+    var messagesDiv = document.createElement('div');
     messagesDiv.id = 'chatMessages';
+    messagesDiv.setAttribute('aria-live', 'polite');
+    messagesDiv.setAttribute('aria-atomic', 'false');
     Object.assign(messagesDiv.style, {
       padding: '10px',
       overflowY: 'auto',
       flex: '1',
-      fontSize: '0.9rem',
-      backgroundColor: '#f9f9f9'
+      fontSize: '0.88rem',
+      backgroundColor: '#f4f6f8'
     });
     chatWindow.appendChild(messagesDiv);
-    // Barre d'entrée
-    const inputContainer = document.createElement('div');
+
+    // Zone de saisie
+    var inputContainer = document.createElement('div');
     Object.assign(inputContainer.style, {
       display: 'flex',
-      borderTop: '1px solid #eee',
-      padding: '6px'
+      borderTop: '1px solid #e9ecef',
+      padding: '8px',
+      backgroundColor: '#fff'
     });
-    const inputField = document.createElement('input');
+    var inputField = document.createElement('input');
     inputField.type = 'text';
-    inputField.placeholder = 'Écrivez votre message...';
+    inputField.placeholder = 'Posez votre question…';
+    inputField.setAttribute('aria-label', 'Votre message');
     Object.assign(inputField.style, {
       flex: '1',
-      border: '1px solid #ccc',
-      borderRadius: '4px',
-      padding: '6px 8px',
-      marginRight: '6px'
+      border: '1.5px solid #dee2e6',
+      borderRadius: '20px',
+      padding: '7px 14px',
+      marginRight: '8px',
+      fontSize: '0.88rem',
+      outline: 'none'
     });
-    inputField.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        sendMessage();
-      }
+    inputField.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') { e.preventDefault(); sendMessage(); }
     });
-    const sendBtn = document.createElement('button');
+    var sendBtn = document.createElement('button');
     sendBtn.type = 'button';
     sendBtn.textContent = 'Envoyer';
+    sendBtn.setAttribute('aria-label', 'Envoyer le message');
     Object.assign(sendBtn.style, {
       border: 'none',
-      backgroundColor: '#28a745',
+      backgroundColor: '#007bff',
       color: '#fff',
-      padding: '6px 12px',
-      borderRadius: '4px',
-      cursor: 'pointer'
+      padding: '7px 14px',
+      borderRadius: '20px',
+      cursor: 'pointer',
+      fontSize: '0.88rem',
+      fontWeight: '600',
+      transition: 'background .2s'
     });
-    sendBtn.addEventListener('click', () => {
-      sendMessage();
-    });
+    sendBtn.addEventListener('mouseenter', function() { sendBtn.style.backgroundColor = '#0a58ca'; });
+    sendBtn.addEventListener('mouseleave', function() { sendBtn.style.backgroundColor = '#007bff'; });
+    sendBtn.addEventListener('click', sendMessage);
     inputContainer.appendChild(inputField);
     inputContainer.appendChild(sendBtn);
     chatWindow.appendChild(inputContainer);
     document.body.appendChild(chatWindow);
 
-    /**
-     * Met à jour la taille et la position du chat et du bouton selon la largeur de l'écran.
-     * Sur mobile (moins de 600px de largeur), la fenêtre occupe une grande partie de l'écran
-     * pour rester lisible et le bouton est plus petit.
-     */
+    // Responsive
     function updateChatLayout() {
-      const isMobile = window.innerWidth < 600;
+      var isMobile = window.innerWidth < 600;
       if (isMobile) {
-        // Fenêtre de chat plus large et plus basse sur mobile
         chatWindow.style.width = '90vw';
         chatWindow.style.height = '60vh';
         chatWindow.style.right = '5vw';
-        chatWindow.style.bottom = '80px';
-        // Bouton plus petit
-        toggleBtn.style.width = '50px';
-        toggleBtn.style.height = '50px';
+        chatWindow.style.bottom = '85px';
+        toggleBtn.style.width = '52px';
+        toggleBtn.style.height = '52px';
       } else {
         chatWindow.style.width = '350px';
         chatWindow.style.height = '450px';
@@ -143,189 +174,184 @@
         toggleBtn.style.height = '60px';
       }
     }
-    // Mettre à jour immédiatement et lors du redimensionnement
     updateChatLayout();
     window.addEventListener('resize', updateChatLayout);
 
-    // Bascule de visibilité
-    toggleBtn.addEventListener('click', () => {
-      chatWindow.style.display = chatWindow.style.display === 'none' ? 'flex' : 'none';
+    // Bascule d'affichage
+    toggleBtn.addEventListener('click', function() {
+      var isOpen = chatWindow.style.display !== 'none';
+      chatWindow.style.display = isOpen ? 'none' : 'flex';
+      toggleBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      if (!isOpen) {
+        inputField.focus();
+        if (messagesDiv.children.length === 0) {
+          addMessage('Bonjour ! Comment puis-je vous aider ? 😊', false);
+          addOptions([
+            { label: 'Nos services', keyword: 'service' },
+            { label: 'Tarifs', keyword: 'prix' },
+            { label: 'Horaires', keyword: 'horaire' },
+            { label: 'Contact', keyword: 'contact' }
+          ]);
+        }
+      }
     });
 
     /**
-     * Ajoute un message texte dans l'interface et scrolle vers le bas
+     * Ajoute un message dans la fenêtre de chat
      * @param {string} text Contenu du message
-     * @param {boolean} isUser Indique si le message est celui de l'utilisateur
+     * @param {boolean} isUser true = message utilisateur, false = réponse du bot
      */
     function addMessage(text, isUser) {
-      const msg = document.createElement('div');
+      var msg = document.createElement('div');
       msg.textContent = text;
       Object.assign(msg.style, {
-        backgroundColor: isUser ? '#e9f5ff' : '#f8f9fa',
-        padding: '6px 10px',
-        marginBottom: '5px',
-        borderRadius: '6px',
+        backgroundColor: isUser ? '#007bff' : '#fff',
+        color: isUser ? '#fff' : '#212529',
+        padding: '8px 12px',
+        marginBottom: '6px',
+        borderRadius: isUser ? '16px 16px 4px 16px' : '16px 16px 16px 4px',
         alignSelf: isUser ? 'flex-end' : 'flex-start',
-        maxWidth: '100%',
-        wordWrap: 'break-word'
+        maxWidth: '85%',
+        wordWrap: 'break-word',
+        boxShadow: '0 1px 3px rgba(0,0,0,.1)',
+        display: 'block'
       });
       messagesDiv.appendChild(msg);
       messagesDiv.scrollTop = messagesDiv.scrollHeight;
     }
 
     /**
-     * Ajoute des boutons d'options dans le chat lorsque la question n'est pas comprise.
-     * Chaque option déclenche l'envoi automatique de la requête correspondante.
-     * @param {Array<{label: string, keyword: string}>} options Liste d'options proposées
+     * Ajoute des boutons d'options cliquables
+     * @param {Array<{label:string, keyword:string}>} options
      */
     function addOptions(options) {
-      const container = document.createElement('div');
+      var container = document.createElement('div');
       Object.assign(container.style, {
         display: 'flex',
-        flexDirection: 'column',
-        gap: '4px',
-        marginBottom: '6px'
+        flexWrap: 'wrap',
+        gap: '6px',
+        marginBottom: '8px',
+        paddingLeft: '4px'
       });
-      options.forEach(opt => {
-        // Crée un élément de liste sobre avec un trait en bas et une case cliquable
-        const item = document.createElement('div');
-        Object.assign(item.style, {
-          width: '100%',
-          padding: '8px 6px',
-          borderBottom: '1px solid #e0e0e0',
-          cursor: 'pointer',
-          fontSize: '0.9rem',
-          backgroundColor: '#fafafa',
-          display: 'flex',
-          alignItems: 'center'
-        });
-        // Case vide (checkbox) avec une coche cachée
-        const checkbox = document.createElement('span');
-        Object.assign(checkbox.style, {
-          display: 'inline-block',
-          width: '16px',
-          height: '16px',
-          border: '1px solid #007bff',
-          borderRadius: '3px',
-          marginRight: '8px',
-          position: 'relative'
-        });
-        const tick = document.createElement('span');
-        tick.textContent = '✓';
-        Object.assign(tick.style, {
-          position: 'absolute',
-          left: '2px',
-          top: '-2px',
-          fontSize: '16px',
+      options.forEach(function(opt) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = opt.label;
+        Object.assign(btn.style, {
+          border: '1.5px solid #007bff',
+          borderRadius: '20px',
+          background: '#fff',
           color: '#007bff',
-          opacity: '0',
-          transform: 'scale(0.5)',
-          transition: 'opacity 0.2s ease, transform 0.2s ease'
+          padding: '5px 12px',
+          fontSize: '0.82rem',
+          cursor: 'pointer',
+          transition: 'background .2s, color .2s'
         });
-        checkbox.appendChild(tick);
-        // Texte du choix
-        const label = document.createElement('span');
-        label.textContent = opt.label;
-        // Ajout au conteneur
-        item.appendChild(checkbox);
-        item.appendChild(label);
-        item.addEventListener('click', () => {
-          // Anime la coche
-          tick.style.opacity = '1';
-          tick.style.transform = 'scale(1)';
-          // Ajouter la requête de l'utilisateur
+        btn.addEventListener('mouseenter', function() {
+          btn.style.background = '#007bff';
+          btn.style.color = '#fff';
+        });
+        btn.addEventListener('mouseleave', function() {
+          btn.style.background = '#fff';
+          btn.style.color = '#007bff';
+        });
+        btn.addEventListener('click', function() {
           addMessage(opt.label, true);
-          const resp = getBotResponse(opt.keyword || opt.label);
-          setTimeout(() => {
+          setTimeout(function() {
+            var resp = getBotResponse(opt.keyword || opt.label);
             if (typeof resp === 'string') {
               addMessage(resp, false);
             } else if (resp && resp.text) {
               addMessage(resp.text, false);
-              if (Array.isArray(resp.options)) {
-                addOptions(resp.options);
-              }
+              if (Array.isArray(resp.options)) addOptions(resp.options);
             }
           }, 300);
         });
-        container.appendChild(item);
+        container.appendChild(btn);
       });
       messagesDiv.appendChild(container);
       messagesDiv.scrollTop = messagesDiv.scrollHeight;
     }
 
-    /**
-     * Envoie le message de l'utilisateur et gère la réponse du bot
-     */
+    /** Envoie le message de l'utilisateur */
     function sendMessage() {
-      const text = inputField.value.trim();
+      var text = inputField.value.trim();
       if (!text) return;
       addMessage(text, true);
       inputField.value = '';
-      // Génération de la réponse
-      const response = getBotResponse(text);
-      setTimeout(() => {
-        // Si la réponse est une chaîne simple, l'afficher directement
+      var response = getBotResponse(text);
+      setTimeout(function() {
         if (typeof response === 'string') {
           addMessage(response, false);
         } else if (response && response.text) {
-          // Affiche le texte puis les options proposées
           addMessage(response.text, false);
-          if (Array.isArray(response.options)) {
-            addOptions(response.options);
-          }
+          if (Array.isArray(response.options)) addOptions(response.options);
         }
       }, 500);
     }
 
-    /**
-     * Retourne une réponse en fonction du message de l'utilisateur
-     * @param {string} msg Message de l'utilisateur
-     * @returns {string} Réponse du bot
-     */
+    /** Retourne une réponse selon le message de l'utilisateur */
     function getBotResponse(msg) {
-      const lower = msg.toLowerCase();
-      // Exemple de réponses basées sur des mots-clés
-      if (lower.includes('bonjour') || lower.includes('salut') || lower.includes('hello')) {
-        return 'Bonjour ! Comment puis-je vous aider ?';
+      var lower = msg.toLowerCase();
+      if (lower.includes('bonjour') || lower.includes('salut') || lower.includes('hello') || lower.includes('bonsoir')) {
+        return 'Bonjour ! Bienvenue chez Copie Courneuve9 😊 Comment puis-je vous aider ?';
       }
-      if (lower.includes('horaire') || lower.includes('ouvert')) {
-        return 'Nous sommes ouverts du lundi au vendredi de 9h à 18h et le samedi de 10h à 14h.';
+      if (lower.includes('horaire') || lower.includes('ouvert') || lower.includes('ferme')) {
+        return 'Nous sommes ouverts du lundi au vendredi de 9h à 18h et le samedi de 10h à 14h. Fermé le dimanche.';
       }
-      if (lower.includes('prix') || lower.includes('tarif')) {
-        return 'Nos tarifs varient selon les services. Vous pouvez consulter la page « Demande Devis » pour obtenir un devis personnalisé.';
-      }
-      if (lower.includes('service') || lower.includes('offre') || lower.includes('propose')) {
-        return 'Nous proposons des services de photocopie, impression numérique et offset, numérisation, et bien plus encore.';
-      }
-      // Réponse aux demandes sur les produits : proposer des catégories disponibles
-      if (lower.includes('produit')) {
+      if (lower.includes('prix') || lower.includes('tarif') || lower.includes('cout') || lower.includes('coût') || lower.includes('combien')) {
         return {
-          text: 'Nous proposons plusieurs catégories de produits. Sélectionnez celle qui vous intéresse :',
+          text: 'Voici nos tarifs principaux :',
           options: [
-            { label: 'Impression Numérique & Offset', keyword: 'impression' }
-            // D'autres catégories pourraient être ajoutées ici
+            { label: 'Photocopie N&B : 0,10€', keyword: 'photocopie' },
+            { label: 'Impression couleur : 0,20€', keyword: 'impression' },
+            { label: 'Numérisation : 0,15€', keyword: 'numerisation' },
+            { label: 'Chemise à rabat : 20€', keyword: 'chemise' }
           ]
         };
       }
-      // Réponse détaillée pour la catégorie Impression
+      if (lower.includes('service') || lower.includes('offre') || lower.includes('propose')) {
+        return 'Nous proposons : photocopie (N&B et couleur), impression numérique et offset, numérisation de documents, et chemises à rabat personnalisées.';
+      }
+      if (lower.includes('photocopi')) {
+        return 'Photocopie noir & blanc à partir de 0,10€/page et couleur à 0,20€/page. Qualité laser garantie !';
+      }
+      if (lower.includes('numeris') || lower.includes('scan')) {
+        return 'Service de numérisation à 0,15€/page. Vos documents numérisés en haute résolution et envoyés par email rapidement.';
+      }
+      if (lower.includes('produit')) {
+        return {
+          text: 'Nous proposons plusieurs catégories de produits :',
+          options: [
+            { label: 'Impression Numérique & Offset', keyword: 'impression' },
+            { label: 'Chemise à Rabat', keyword: 'chemise' },
+            { label: 'Photocopie', keyword: 'photocopie' }
+          ]
+        };
+      }
       if (lower.includes('impression')) {
-        return 'Notre catégorie « Impression Numérique & Offset » comprend des impressions de haute qualité pour tous vos besoins professionnels. N\'hésitez pas à consulter la page correspondante pour plus de détails.';
+        return 'Notre service d\'impression numérique et offset offre des rendus professionnels. Retrouvez tous les détails sur la page Impression.';
       }
-      if (lower.includes('contact') || lower.includes('téléphone') || lower.includes('mail')) {
-        return 'Vous pouvez nous contacter par téléphone au 07 73 00 66 63 ou par email à copie93120@gmail.com.';
+      if (lower.includes('chemise')) {
+        return 'Nos chemises à rabat personnalisées sont disponibles à partir de 20€. Elles peuvent être personnalisées avec vos couleurs et votre logo !';
       }
-      // Réponse pour les devis
-      if (lower.includes('devis')) {
-        return 'Pour recevoir un devis personnalisé, veuillez visiter la page « Demande Devis » et remplir le formulaire.';
+      if (lower.includes('contact') || lower.includes('telephone') || lower.includes('téléphone') || lower.includes('appel') || lower.includes('mail') || lower.includes('email')) {
+        return 'Contactez-nous par téléphone au 07 73 00 66 63, par email à copie93120@gmail.com, ou via WhatsApp au même numéro.';
       }
-      // Lorsque le message n'est pas reconnu, retourner un objet avec texte et options cliquables
+      if (lower.includes('devis') || lower.includes('commande') || lower.includes('commander')) {
+        return 'Pour un devis personnalisé, rendez-vous sur la page « Demande de Devis » ou contactez-nous directement sur WhatsApp !';
+      }
+      if (lower.includes('merci') || lower.includes('super') || lower.includes('parfait')) {
+        return 'Avec plaisir ! N\'hésitez pas si vous avez d\'autres questions 😊';
+      }
       return {
-        text: 'Je ne comprends pas votre demande. Voici quelques options utiles :',
+        text: 'Je ne suis pas sûr de comprendre. Voici ce que je peux vous renseigner :',
         options: [
-          { label: 'Services', keyword: 'services' },
-          { label: 'Produits', keyword: 'produits' },
+          { label: 'Nos services', keyword: 'service' },
+          { label: 'Tarifs', keyword: 'prix' },
+          { label: 'Horaires', keyword: 'horaire' },
           { label: 'Contact', keyword: 'contact' },
-          { label: 'Devis', keyword: 'devis' }
+          { label: 'Demander un devis', keyword: 'devis' }
         ]
       };
     }

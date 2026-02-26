@@ -3,84 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impression Numérique & Offset – Copie Courneuve9</title>
+    <meta name="description" content="Impression numérique et offset à La Courneuve. Qualité professionnelle, délai rapide. Chemises à rabat personnalisées et plus.">
+    <title>Impression Numérique &amp; Offset – Copie Courneuve9</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .navbar-brand {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        .product-item {
-            margin-bottom: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">Copie Courneuve9</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <a class="navbar-brand" href="index.html">Copie <span>Courneuve9</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="nos_produits.html">Nos Produits</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="copie.html">Copie la Courneuve</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="devis.html">Demande Devis</a>
-                </li>
-                <!-- Lien vers la nouvelle page Découverte -->
-                <li class="nav-item">
-                    <a class="nav-link" href="decouverte.html">Découverte</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="admin.html">Admin</a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                <li class="nav-item active"><a class="nav-link" href="nos_produits.html">Nos Produits</a></li>
+                <li class="nav-item"><a class="nav-link" href="copie.html">Copie La Courneuve</a></li>
+                <li class="nav-item"><a class="nav-link" href="devis.html">Devis</a></li>
+                <li class="nav-item"><a class="nav-link" href="decouverte.html">Découverte</a></li>
+                <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Section produits d’impression -->
+    <!-- En-tête de page -->
+    <div class="page-header">
+        <h1 data-editable="impression_title">Impression Numérique &amp; Offset</h1>
+        <p>Solutions d'impression professionnelle pour particuliers et entreprises</p>
+    </div>
+
+    <!-- Fil d'Ariane -->
+    <div class="container mt-3">
+        <nav aria-label="Fil d'Ariane">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                <li class="breadcrumb-item"><a href="nos_produits.html">Nos Produits</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Impression</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Produits d'impression -->
     <section class="container py-4">
-        <h2 class="text-center mb-4" data-editable="impression_title">Impression Numérique & Offset</h2>
         <div class="row" id="impressionProductsContainer">
-            <!-- Produit : Chemise à rabat -->
-            <div class="col-md-4 product-item">
-                <div class="card h-100">
+            <div class="col-md-4 product-item mb-4">
+                <div class="card h-100 text-center">
                     <div class="card-body">
+                        <div class="card-icon">📋</div>
                         <h5 class="card-title" data-editable="impression_card0_title">Chemise à Rabat</h5>
-                        <p class="card-text" data-editable="impression_card0_desc">Organisez vos documents avec nos chemises à rabat personnalisées.</p>
-                        <a href="impression_chemise_rabat.html" class="btn btn-primary">Voir plus</a>
+                        <p class="card-text text-muted" data-editable="impression_card0_desc">
+                            Organisez et protégez vos documents avec nos chemises à rabat personnalisées.
+                            Disponibles en plusieurs couleurs.
+                        </p>
+                        <p class="price-badge mb-3">À partir de 20 €</p>
+                        <a href="impression_chemise_rabat.html" class="btn btn-primary rounded-pill px-4">Voir plus</a>
                     </div>
                 </div>
             </div>
-            <!-- Vous pouvez ajouter d’autres produits ici -->
+            <div class="col-md-4 product-item mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <div class="card-icon">🖨️</div>
+                        <h5 class="card-title">Impression Numérique</h5>
+                        <p class="card-text text-muted">
+                            Idéale pour les petites et moyennes quantités. Rendu couleur fidèle et finition soignée.
+                        </p>
+                        <p class="price-badge mb-3">dès 0,20 € / page</p>
+                        <a href="devis.html" class="btn btn-primary rounded-pill px-4">Demander un devis</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 product-item mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <div class="card-icon">📰</div>
+                        <h5 class="card-title">Impression Offset</h5>
+                        <p class="card-text text-muted">
+                            Pour les grandes quantités. Qualité irréprochable et coût réduit par unité.
+                        </p>
+                        <p class="price-badge mb-3">Sur devis</p>
+                        <a href="devis.html" class="btn btn-primary rounded-pill px-4">Demander un devis</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- Avantages -->
+    <section class="py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="section-title mb-2">Pourquoi choisir notre impression ?</h2>
+            <div class="section-divider"></div>
+            <div class="row mt-4">
+                <div class="col-md-3 mb-3">
+                    <div class="feature-icon">🎯</div>
+                    <h6 class="font-weight-bold">Précision</h6>
+                    <p class="text-muted small">Chaque détail compte, nos machines garantissent un résultat impeccable.</p>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="feature-icon">⚡</div>
+                    <h6 class="font-weight-bold">Rapidité</h6>
+                    <p class="text-muted small">Délais express disponibles pour vos besoins urgents.</p>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="feature-icon">💰</div>
+                    <h6 class="font-weight-bold">Prix compétitifs</h6>
+                    <p class="text-muted small">Tarifs transparents, sans frais cachés.</p>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="feature-icon">🤝</div>
+                    <h6 class="font-weight-bold">Conseil</h6>
+                    <p class="text-muted small">Notre équipe vous guide pour choisir la meilleure option.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="container py-5 text-center">
+        <h3 class="font-weight-bold mb-3">Prêt à lancer votre commande ?</h3>
+        <a href="devis.html" class="btn btn-primary rounded-pill px-5 font-weight-bold mr-2">Demander un devis</a>
+        <a href="https://wa.me/33773006663" class="btn-whatsapp" target="_blank" rel="noopener">💬 WhatsApp</a>
+    </section>
+
     <!-- Pied de page -->
-    <footer class="text-center py-4 bg-light">
-        <p>&copy; 2024‑2025 Copie Courneuve9. Tous droits réservés.</p>
-        <p>Email : <a href="mailto:copie93120@gmail.com">copie93120@gmail.com</a></p>
-        <p>Téléphone : <a href="tel:+33773006663">07&nbsp;73&nbsp;00&nbsp;66&nbsp;63</a></p>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h6>Copie Courneuve9</h6>
+                    <p style="font-size:.9rem">Votre partenaire de confiance pour la photocopie et l'impression à La Courneuve.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6>Navigation</h6>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="nos_produits.html">Nos Produits</a></li>
+                        <li><a href="copie.html">Copie La Courneuve</a></li>
+                        <li><a href="devis.html">Demande de Devis</a></li>
+                        <li><a href="decouverte.html">Découverte</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6>Contact</h6>
+                    <ul class="footer-links">
+                        <li>📧 <a href="mailto:copie93120@gmail.com">copie93120@gmail.com</a></li>
+                        <li>📞 <a href="tel:+33773006663">07 73 00 66 63</a></li>
+                        <li>💬 <a href="https://wa.me/33773006663" target="_blank" rel="noopener">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">&copy; 2024–2025 Copie Courneuve9. Tous droits réservés.</div>
+        </div>
     </footer>
 
     <!-- Scripts Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Script d’administration -->
     <script src="admin.js"></script>
-    <!-- Chatbot simple -->
     <script src="chatbot.js"></script>
-    <!-- Barre de recherche pour filtrer les produits si présents -->
     <script src="search.js"></script>
 </body>
 </html>
