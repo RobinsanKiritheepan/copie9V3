@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Chemises à rabat personnalisées à La Courneuve. Idéales pour organiser vos documents professionnels. Prix à partir de 20€.">
+    <meta name="description" content="Chemises à rabat personnalisées à La Courneuve. Logo, couleurs, format A4. À partir de 20€.">
     <title>Chemise à Rabat – Copie Courneuve9</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <a class="navbar-brand" href="index.html">Copie <span>Courneuve9</span></a>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html">Copie <span class="brand-accent">Courneuve9</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,14 +28,13 @@
         </div>
     </nav>
 
-    <!-- En-tête de page -->
     <div class="page-header">
         <h1 data-editable="chemise_rabat_title">Chemise à Rabat</h1>
         <p>Personnalisée à vos couleurs et à votre logo</p>
     </div>
 
-    <!-- Fil d'Ariane -->
-    <div class="container mt-3">
+    <!-- Breadcrumb -->
+    <div class="container">
         <nav aria-label="Fil d'Ariane">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
@@ -49,66 +48,68 @@
     <!-- Détail produit -->
     <section class="container py-4">
         <div class="row align-items-center">
-            <div class="col-lg-6">
-                <h2 class="section-title">Description du produit</h2>
-                <div class="section-divider" style="margin-left:0"></div>
-                <p data-editable="chemise_rabat_desc" class="mt-3">
-                    Nos chemises à rabat sont idéales pour organiser et protéger vos documents importants.
-                    Personnalisez-les avec vos couleurs d'entreprise et votre logo pour une présentation
-                    professionnelle et soignée lors de vos réunions ou rendez-vous clients.
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <span class="section-tag">Produit</span>
+                <h2 class="section-title mt-2">Description</h2>
+                <div class="divider" style="margin-left:0"></div>
+                <p data-editable="chemise_rabat_desc" class="text-muted mt-3">
+                    Nos chemises à rabat sont idéales pour organiser et présenter vos documents de façon professionnelle.
+                    Personnalisez-les avec votre logo et vos couleurs d'entreprise.
                 </p>
-                <ul class="list-unstyled mt-3">
+                <ul class="list-unstyled mt-3" style="color:#374151;font-size:.93rem">
                     <li class="mb-2">✅ Carton rigide haute qualité</li>
-                    <li class="mb-2">✅ Personnalisation couleur et logo</li>
+                    <li class="mb-2">✅ Personnalisation couleur &amp; logo</li>
                     <li class="mb-2">✅ Format A4 standard</li>
                     <li class="mb-2">✅ Pochettes intérieures incluses</li>
                     <li class="mb-2">✅ Élastique de maintien</li>
                 </ul>
+                <p class="mt-3">
+                    <strong>Prix :</strong>
+                    <span class="price-badge ml-1" data-editable="chemise_rabat_price">À partir de 20 €</span>
+                </p>
                 <div class="mt-4">
-                    <p><strong>Prix :</strong> <span class="price-badge" data-editable="chemise_rabat_price">À partir de 20 €</span></p>
-                </div>
-                <div class="mt-3">
-                    <a href="devis.html" class="btn btn-primary rounded-pill px-5 font-weight-bold mr-2">Commander</a>
-                    <a href="impression.html" class="btn btn-outline-secondary rounded-pill px-4">Retour aux produits</a>
+                    <a href="devis.html" class="btn btn-primary px-4 mr-2">Commander</a>
+                    <a href="impression.html" class="btn btn-outline-secondary">← Retour</a>
                 </div>
             </div>
-            <div class="col-lg-6 mt-4 mt-lg-0">
-                <div class="card p-4 text-center bg-light border-0">
-                    <div style="font-size:6rem">📋</div>
-                    <h5 class="mt-2 font-weight-bold">Chemise à Rabat Premium</h5>
-                    <p class="text-muted">Personnalisée à votre image</p>
+            <div class="col-lg-6">
+                <div class="card text-center p-5" style="background:var(--bg)">
+                    <div style="font-size:5rem">📋</div>
+                    <h5 class="mt-3" style="font-weight:700">Chemise à Rabat Premium</h5>
+                    <p class="text-muted" style="font-size:.9rem">Personnalisée à votre image</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Options de personnalisation -->
-    <section class="py-5 bg-light">
+    <!-- Options -->
+    <section class="py-5" style="background:var(--bg)">
         <div class="container">
-            <div class="text-center mb-4">
-                <h2 class="section-title">Options de personnalisation</h2>
-                <div class="section-divider"></div>
+            <div class="text-center mb-5">
+                <span class="section-tag">Personnalisation</span>
+                <h2 class="section-title mt-2">Options disponibles</h2>
+                <div class="divider"></div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-md-4 mb-3">
-                    <div class="contact-card text-center">
-                        <div class="contact-icon">🎨</div>
-                        <h6 class="font-weight-bold">Couleur</h6>
-                        <p class="text-muted small">Toutes les couleurs disponibles selon votre charte graphique.</p>
+                    <div class="info-card text-center">
+                        <span class="info-icon">🎨</span>
+                        <h6>Couleur</h6>
+                        <p>Toutes les couleurs selon votre charte graphique.</p>
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <div class="contact-card text-center">
-                        <div class="contact-icon">🏷️</div>
-                        <h6 class="font-weight-bold">Logo / Texte</h6>
-                        <p class="text-muted small">Votre logo et vos informations imprimés en haute qualité.</p>
+                    <div class="info-card text-center">
+                        <span class="info-icon">🏷️</span>
+                        <h6>Logo / Texte</h6>
+                        <p>Logo et informations imprimés en haute qualité.</p>
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <div class="contact-card text-center">
-                        <div class="contact-icon">📦</div>
-                        <h6 class="font-weight-bold">Quantité</h6>
-                        <p class="text-muted small">Commandes à partir de 1 pièce, tarifs dégressifs pour les lots.</p>
+                    <div class="info-card text-center">
+                        <span class="info-icon">📦</span>
+                        <h6>Quantité</h6>
+                        <p>Dès 1 pièce. Tarifs dégressifs pour les lots.</p>
                     </div>
                 </div>
             </div>
@@ -117,21 +118,18 @@
 
     <!-- CTA -->
     <section class="container py-5 text-center">
-        <h3 class="font-weight-bold mb-3">Intéressé par ce produit ?</h3>
-        <p class="text-muted mb-4">Contactez-nous pour un devis personnalisé selon vos besoins.</p>
-        <a href="devis.html" class="btn btn-primary rounded-pill px-5 font-weight-bold mr-2">Demander un devis</a>
-        <a href="https://wa.me/33773006663?text=Bonjour%2C%20je%20voudrais%20commander%20des%20chemises%20%C3%A0%20rabat." class="btn-whatsapp" target="_blank" rel="noopener">
-            💬 WhatsApp
-        </a>
+        <h3 style="font-weight:800;margin-bottom:.75rem">Intéressé par ce produit ?</h3>
+        <a href="devis.html" class="btn btn-primary px-5 mr-2">Demander un devis</a>
+        <a href="https://wa.me/33773006663?text=Bonjour%2C%20je%20voudrais%20commander%20des%20chemises%20%C3%A0%20rabat."
+           class="btn-whatsapp" target="_blank" rel="noopener">💬 WhatsApp</a>
     </section>
 
-    <!-- Pied de page -->
     <footer class="site-footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4">
-                    <h6>Copie Courneuve9</h6>
-                    <p style="font-size:.9rem">Votre partenaire de confiance pour la photocopie et l'impression à La Courneuve.</p>
+                    <span class="footer-brand">Copie Courneuve9</span>
+                    <p style="font-size:.88rem">Votre partenaire photocopie et impression à La Courneuve.</p>
                 </div>
                 <div class="col-md-4 mb-4">
                     <h6>Navigation</h6>
@@ -146,9 +144,9 @@
                 <div class="col-md-4 mb-4">
                     <h6>Contact</h6>
                     <ul class="footer-links">
-                        <li>📧 <a href="mailto:copie93120@gmail.com">copie93120@gmail.com</a></li>
-                        <li>📞 <a href="tel:+33773006663">07 73 00 66 63</a></li>
-                        <li>💬 <a href="https://wa.me/33773006663" target="_blank" rel="noopener">WhatsApp</a></li>
+                        <li><a href="mailto:copie93120@gmail.com">copie93120@gmail.com</a></li>
+                        <li><a href="tel:+33773006663">07 73 00 66 63</a></li>
+                        <li><a href="https://wa.me/33773006663" target="_blank" rel="noopener">WhatsApp</a></li>
                     </ul>
                 </div>
             </div>
@@ -156,7 +154,6 @@
         </div>
     </footer>
 
-    <!-- Scripts Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

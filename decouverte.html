@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez nos services et produits en mode fil d'actualité. Likez vos favoris et explorez l'offre de Copie Courneuve9.">
+    <meta name="description" content="Découvrez nos services en mode fil d'actualité. Likez vos favoris – Copie Courneuve9.">
     <title>Découverte – Copie Courneuve9</title>
-    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Styles partagés -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <a class="navbar-brand" href="index.html">Copie <span>Courneuve9</span></a>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html">Copie <span class="brand-accent">Courneuve9</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
             <span class="navbar-toggler-icon"></span>
@@ -33,23 +31,22 @@
     <!-- Image d'en-tête -->
     <div class="header-image">
         <div class="text-center text-white">
-            <h1 class="display-4 font-weight-bold">Découverte</h1>
-            <p class="lead">Découvrez nos services comme sur les réseaux sociaux</p>
+            <h1 class="display-4" style="font-weight:800">Découverte</h1>
+            <p class="lead mb-0">Découvrez nos services comme sur les réseaux sociaux</p>
         </div>
     </div>
 
-    <!-- Section Reels -->
+    <!-- Reels -->
     <section class="container-fluid p-0">
         <div id="reelContainer"></div>
     </section>
 
-    <!-- Pied de page -->
     <footer class="site-footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4">
-                    <h6>Copie Courneuve9</h6>
-                    <p style="font-size:.9rem">Votre partenaire de confiance pour la photocopie et l'impression à La Courneuve.</p>
+                    <span class="footer-brand">Copie Courneuve9</span>
+                    <p style="font-size:.88rem">Votre partenaire photocopie et impression à La Courneuve.</p>
                 </div>
                 <div class="col-md-4 mb-4">
                     <h6>Navigation</h6>
@@ -64,9 +61,9 @@
                 <div class="col-md-4 mb-4">
                     <h6>Contact</h6>
                     <ul class="footer-links">
-                        <li>📧 <a href="mailto:copie93120@gmail.com">copie93120@gmail.com</a></li>
-                        <li>📞 <a href="tel:+33773006663">07 73 00 66 63</a></li>
-                        <li>💬 <a href="https://wa.me/33773006663" target="_blank" rel="noopener">WhatsApp</a></li>
+                        <li><a href="mailto:copie93120@gmail.com">copie93120@gmail.com</a></li>
+                        <li><a href="tel:+33773006663">07 73 00 66 63</a></li>
+                        <li><a href="https://wa.me/33773006663" target="_blank" rel="noopener">WhatsApp</a></li>
                     </ul>
                 </div>
             </div>
@@ -74,83 +71,30 @@
         </div>
     </footer>
 
-    <!-- Scripts Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Mode admin et chatbot -->
     <script src="admin.js"></script>
     <script src="chatbot.js"></script>
 
-    <!-- Script dynamique pour générer les reels et gérer les likes -->
     <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const container = document.getElementById('reelContainer');
-        // Récupérer les compteurs de likes depuis le stockage local
-        let likeStore = {};
-        try {
-            likeStore = JSON.parse(localStorage.getItem('reelLikes') || '{}');
-        } catch (e) {
-            likeStore = {};
-        }
+        var container = document.getElementById('reelContainer');
+        var likeStore = {};
+        try { likeStore = JSON.parse(localStorage.getItem('reelLikes') || '{}'); } catch(e) {}
 
-        // Liste des produits et services à afficher (statique et sûre)
-        const items = [
-            {
-                id: 'photocopie',
-                title: 'Photocopie Rapide',
-                desc: 'Photocopies de haute qualité pour tous vos documents.',
-                price: '0,10 € par page',
-                image: 'service1.png',
-                link: 'index.html'
-            },
-            {
-                id: 'impression',
-                title: 'Impression Premium',
-                desc: 'Impressions couleur et noir & blanc, papier haute qualité.',
-                price: '0,20 € par page',
-                image: 'service2.png',
-                link: 'impression.html'
-            },
-            {
-                id: 'numerisation',
-                title: 'Numérisation Express',
-                desc: 'Numérisez vos documents rapidement et envoyez-les par email.',
-                price: '0,15 € par page',
-                image: 'service3.png',
-                link: 'nos_produits.html'
-            },
-            {
-                id: 'chemise_rabat',
-                title: 'Chemise à Rabat',
-                desc: 'Chemises à rabat personnalisées pour organiser vos documents.',
-                price: '20 €',
-                image: 'photo1.png',
-                link: 'impression_chemise_rabat.html'
-            }
+        var items = [
+            { id:'photocopie',    title:'Photocopie Rapide',    desc:'Photocopies haute qualité pour tous vos documents.', price:'0,10 € / page', image:'service1.png', link:'index.html' },
+            { id:'impression',    title:'Impression Premium',   desc:'Couleur et N&B, papier haute qualité.',              price:'0,20 € / page', image:'service2.png', link:'impression.html' },
+            { id:'numerisation',  title:'Numérisation Express', desc:'Documents numérisés et envoyés par email rapidement.', price:'0,15 € / page', image:'service3.png', link:'nos_produits.html' },
+            { id:'chemise_rabat', title:'Chemise à Rabat',      desc:'Chemises personnalisées pour vos documents.',        price:'20 €',          image:'photo1.png',   link:'impression_chemise_rabat.html' }
         ];
 
-        // Initialiser les compteurs manquants
-        items.forEach(function(item) {
-            if (!(item.id in likeStore)) {
-                likeStore[item.id] = 0;
-            }
-        });
+        items.forEach(function(item) { if (!(item.id in likeStore)) likeStore[item.id] = 0; });
 
-        // Fonction utilitaire pour échapper le texte (protection XSS)
-        function escapeText(str) {
-            var div = document.createElement('div');
-            div.appendChild(document.createTextNode(str));
-            return div.innerHTML;
-        }
-
-        // Rendu et tri par likes
         function renderItems() {
             container.innerHTML = '';
-            var sorted = items.slice().sort(function(a, b) {
-                return (likeStore[b.id] || 0) - (likeStore[a.id] || 0);
-            });
-
+            var sorted = items.slice().sort(function(a, b) { return (likeStore[b.id]||0) - (likeStore[a.id]||0); });
             sorted.forEach(function(item) {
                 var div = document.createElement('div');
                 div.className = 'reel-item';
@@ -183,18 +127,17 @@
 
                 var likeCount = document.createElement('span');
                 likeCount.className = 'like-count';
-                likeCount.dataset.id = item.id;
                 likeCount.textContent = likeStore[item.id] || 0;
 
                 var link = document.createElement('a');
                 link.href = item.link;
-                link.className = 'btn btn-light btn-sm ml-auto';
-                link.textContent = 'Voir plus';
+                link.className = 'btn btn-sm';
+                link.style.cssText = 'background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.5);border-radius:50px;padding:.3rem 1rem;font-weight:600;text-decoration:none;margin-left:auto;';
+                link.textContent = 'Voir plus →';
 
                 actions.appendChild(likeBtn);
                 actions.appendChild(likeCount);
                 actions.appendChild(link);
-
                 overlay.appendChild(h3);
                 overlay.appendChild(pDesc);
                 overlay.appendChild(pPrice);
@@ -205,18 +148,13 @@
                 likeBtn.addEventListener('click', function() {
                     var id = this.dataset.id;
                     likeStore[id] = (likeStore[id] || 0) + 1;
-                    try {
-                        localStorage.setItem('reelLikes', JSON.stringify(likeStore));
-                    } catch(e) { /* stockage plein */ }
+                    try { localStorage.setItem('reelLikes', JSON.stringify(likeStore)); } catch(e) {}
                     renderItems();
                 });
             });
         }
 
-        // Sauvegarder l'état initial et effectuer le premier rendu
-        try {
-            localStorage.setItem('reelLikes', JSON.stringify(likeStore));
-        } catch(e) { /* stockage plein */ }
+        try { localStorage.setItem('reelLikes', JSON.stringify(likeStore)); } catch(e) {}
         renderItems();
     });
     </script>

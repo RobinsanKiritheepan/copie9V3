@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Demandez un devis gratuit pour vos photocopies, impressions et numérisations à La Courneuve. Réponse rapide sous 24h.">
+    <meta name="description" content="Demandez un devis gratuit pour vos impressions et photocopies. Réponse sous 24h.">
     <title>Demande de Devis – Copie Courneuve9</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <a class="navbar-brand" href="index.html">Copie <span>Courneuve9</span></a>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html">Copie <span class="brand-accent">Courneuve9</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,101 +28,97 @@
         </div>
     </nav>
 
-    <!-- En-tête de page -->
     <div class="page-header">
         <h1 data-editable="devis_title">Demande de Devis</h1>
-        <p>Recevez une réponse personnalisée sous 24h</p>
+        <p>Gratuit · Réponse sous 24h</p>
     </div>
 
-    <!-- Fil d'Ariane -->
-    <div class="container mt-3">
-        <nav aria-label="Fil d'Ariane">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Demande de Devis</li>
-            </ol>
-        </nav>
-    </div>
+    <section class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-1" style="font-weight:800">Décrivez votre projet</h3>
+                        <p class="text-muted mb-4" style="font-size:.92rem">Remplissez le formulaire ci-dessous. Nous vous répondrons dans les plus brefs délais.</p>
 
-    <!-- Formulaire de devis -->
-    <section class="container py-4">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="card p-4 p-md-5">
-                    <h3 class="font-weight-bold mb-4 text-center">Remplissez le formulaire</h3>
-                    <form id="quoteForm" novalidate>
-                        <div class="row">
-                            <div class="col-md-6 form-group">
-                                <label for="name">Nom complet <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="name" placeholder="Jean Dupont" required autocomplete="name">
-                                <div class="invalid-feedback">Veuillez entrer votre nom.</div>
+                        <form id="quoteForm" novalidate>
+                            <div class="row">
+                                <div class="col-sm-6 form-group">
+                                    <label for="name">Nom <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="name"
+                                           placeholder="Jean Dupont" required autocomplete="name">
+                                    <div class="invalid-feedback">Veuillez entrer votre nom.</div>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <label for="email">Email <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" id="email"
+                                           placeholder="jean@exemple.fr" required autocomplete="email">
+                                    <div class="invalid-feedback">Email invalide.</div>
+                                </div>
                             </div>
-                            <div class="col-md-6 form-group">
-                                <label for="email">Email <span class="text-danger">*</span></label>
-                                <input type="email" class="form-control" id="email" placeholder="jean@exemple.fr" required autocomplete="email">
-                                <div class="invalid-feedback">Veuillez entrer un email valide.</div>
+
+                            <div class="form-group">
+                                <label for="phone">Téléphone</label>
+                                <input type="tel" class="form-control" id="phone"
+                                       placeholder="06 00 00 00 00" autocomplete="tel">
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Téléphone</label>
-                            <input type="tel" class="form-control" id="phone" placeholder="06 00 00 00 00" autocomplete="tel" pattern="[0-9\s\+\-\.]{7,15}">
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Type de service <span class="text-danger">*</span></label>
-                            <select class="form-control" id="service" required>
-                                <option value="">-- Sélectionnez un service --</option>
-                                <option>Photocopie noir &amp; blanc</option>
-                                <option>Photocopie couleur</option>
-                                <option>Impression numérique</option>
-                                <option>Impression offset</option>
-                                <option>Numérisation</option>
-                                <option>Chemise à rabat personnalisée</option>
-                                <option>Autre</option>
-                            </select>
-                            <div class="invalid-feedback">Veuillez sélectionner un service.</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="quantity">Quantité estimée</label>
-                            <input type="number" class="form-control" id="quantity" placeholder="ex : 100 pages" min="1">
-                        </div>
-                        <div class="form-group">
-                            <label for="details">Détails de la demande <span class="text-danger">*</span></label>
-                            <textarea class="form-control" id="details" rows="4"
-                                      placeholder="Décrivez votre projet : format, couleur, finition souhaitée…" required></textarea>
-                            <div class="invalid-feedback">Veuillez décrire votre demande.</div>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary btn-lg px-5 font-weight-bold">
+
+                            <div class="form-group">
+                                <label for="service">Type de service <span class="text-danger">*</span></label>
+                                <select class="form-control" id="service" required>
+                                    <option value="">— Sélectionnez un service —</option>
+                                    <option>Photocopie noir &amp; blanc</option>
+                                    <option>Photocopie couleur</option>
+                                    <option>Impression numérique</option>
+                                    <option>Impression offset</option>
+                                    <option>Numérisation</option>
+                                    <option>Chemise à rabat personnalisée</option>
+                                    <option>Autre</option>
+                                </select>
+                                <div class="invalid-feedback">Veuillez sélectionner un service.</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="quantity">Quantité estimée</label>
+                                <input type="number" class="form-control" id="quantity"
+                                       placeholder="ex : 100 pages" min="1">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="details">Détails <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="details" rows="4"
+                                          placeholder="Format, couleur, finition souhaitée…" required></textarea>
+                                <div class="invalid-feedback">Veuillez décrire votre demande.</div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">
                                 Envoyer ma demande
                             </button>
-                        </div>
-                        <div class="form-success mt-3" id="quoteSuccess">
-                            ✅ Votre demande a été envoyée ! Nous vous répondrons dans les plus brefs délais.
-                        </div>
-                    </form>
+                            <div class="form-success" id="quoteSuccess">
+                                ✅ Votre client email va s'ouvrir pour envoyer la demande.
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
                 <!-- Contact direct -->
-                <div class="text-center mt-4">
-                    <p class="text-muted">Vous préférez un contact direct ?</p>
-                    <a href="https://wa.me/33773006663?text=Bonjour%2C%20je%20voudrais%20un%20devis." class="btn-whatsapp mr-2" target="_blank" rel="noopener">
-                        💬 WhatsApp
-                    </a>
-                    <a href="tel:+33773006663" class="btn btn-outline-secondary rounded-pill px-4">
-                        📞 07 73 00 66 63
-                    </a>
+                <div class="text-center mt-4 pt-2">
+                    <p class="text-muted" style="font-size:.9rem">Vous préférez un contact direct ?</p>
+                    <a href="https://wa.me/33773006663?text=Bonjour%2C%20je%20voudrais%20un%20devis."
+                       class="btn-whatsapp mr-2" target="_blank" rel="noopener">💬 WhatsApp</a>
+                    <a href="tel:+33773006663"
+                       class="btn btn-outline-secondary rounded-pill px-4">📞 07 73 00 66 63</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pied de page -->
     <footer class="site-footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4">
-                    <h6>Copie Courneuve9</h6>
-                    <p style="font-size:.9rem">Votre partenaire de confiance pour la photocopie et l'impression à La Courneuve.</p>
+                    <span class="footer-brand">Copie Courneuve9</span>
+                    <p style="font-size:.88rem">Votre partenaire photocopie et impression à La Courneuve.</p>
                 </div>
                 <div class="col-md-4 mb-4">
                     <h6>Navigation</h6>
@@ -137,9 +133,9 @@
                 <div class="col-md-4 mb-4">
                     <h6>Contact</h6>
                     <ul class="footer-links">
-                        <li>📧 <a href="mailto:copie93120@gmail.com">copie93120@gmail.com</a></li>
-                        <li>📞 <a href="tel:+33773006663">07 73 00 66 63</a></li>
-                        <li>💬 <a href="https://wa.me/33773006663" target="_blank" rel="noopener">WhatsApp</a></li>
+                        <li><a href="mailto:copie93120@gmail.com">copie93120@gmail.com</a></li>
+                        <li><a href="tel:+33773006663">07 73 00 66 63</a></li>
+                        <li><a href="https://wa.me/33773006663" target="_blank" rel="noopener">WhatsApp</a></li>
                     </ul>
                 </div>
             </div>
@@ -147,47 +143,39 @@
         </div>
     </footer>
 
-    <!-- Scripts Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        document.getElementById('quoteForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const form = this;
-            let valid = true;
-            form.querySelectorAll('[required]').forEach(function(field) {
-                if (!field.value.trim()) {
-                    field.classList.add('is-invalid');
-                    valid = false;
-                } else {
-                    field.classList.remove('is-invalid');
-                }
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var valid = true;
+            this.querySelectorAll('[required]').forEach(function(f) {
+                if (!f.value.trim()) { f.classList.add('is-invalid'); valid = false; }
+                else f.classList.remove('is-invalid');
             });
             if (!valid) return;
-            const name    = document.getElementById('name').value.trim();
-            const email   = document.getElementById('email').value.trim();
-            const phone   = document.getElementById('phone').value.trim();
-            const service = document.getElementById('service').value;
-            const qty     = document.getElementById('quantity').value.trim();
-            const details = document.getElementById('details').value.trim();
-            const subject = encodeURIComponent('Demande de devis – ' + service);
-            const body    = encodeURIComponent(
+            var name    = document.getElementById('name').value.trim();
+            var email   = document.getElementById('email').value.trim();
+            var phone   = document.getElementById('phone').value.trim();
+            var service = document.getElementById('service').value;
+            var qty     = document.getElementById('quantity').value.trim();
+            var details = document.getElementById('details').value.trim();
+            var subject = encodeURIComponent('Demande de devis – ' + service);
+            var body    = encodeURIComponent(
                 'Nom : ' + name + '\n' +
                 'Email : ' + email + '\n' +
-                (phone ? 'Téléphone : ' + phone + '\n' : '') +
-                'Service souhaité : ' + service + '\n' +
+                (phone ? 'Tél : ' + phone + '\n' : '') +
+                'Service : ' + service + '\n' +
                 (qty ? 'Quantité : ' + qty + '\n' : '') +
                 '\nDétails :\n' + details
             );
             window.location.href = 'mailto:copie93120@gmail.com?subject=' + subject + '&body=' + body;
             document.getElementById('quoteSuccess').style.display = 'block';
-            form.reset();
+            this.reset();
         });
     </script>
-    <!-- Script d'administration -->
     <script src="admin.js"></script>
-    <!-- Chatbot -->
     <script src="chatbot.js"></script>
 </body>
 </html>

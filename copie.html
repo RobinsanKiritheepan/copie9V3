@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Service de photocopie à La Courneuve – Copie Courneuve9. Impression couleur, noir & blanc, numérisation. Tarifs abordables et qualité professionnelle.">
+    <meta name="description" content="Service de photocopie à La Courneuve – qualité laser, tarifs abordables. Impression couleur, N&B, numérisation.">
     <title>Copie La Courneuve – Copie Courneuve9</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <a class="navbar-brand" href="index.html">Copie <span>Courneuve9</span></a>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html">Copie <span class="brand-accent">Courneuve9</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,140 +28,127 @@
         </div>
     </nav>
 
-    <!-- En-tête de page -->
     <div class="page-header">
         <h1>Copie La Courneuve</h1>
         <p>Votre centre de photocopie et d'impression de confiance</p>
     </div>
 
-    <!-- Fil d'Ariane -->
-    <div class="container mt-3">
-        <nav aria-label="Fil d'Ariane">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Copie La Courneuve</li>
-            </ol>
-        </nav>
-    </div>
-
     <!-- Présentation -->
-    <section class="container py-4">
+    <section class="container py-5">
         <div class="row align-items-center">
-            <div class="col-lg-7">
-                <h2 class="section-title">Notre service de photocopie</h2>
-                <div class="section-divider" style="margin-left:0"></div>
-                <p data-editable="copie_content" class="mt-3">
-                    Bienvenue dans notre centre de photocopie à La Courneuve. Nous offrons une large gamme
-                    de services pour répondre à vos besoins, que ce soit pour des impressions personnelles
-                    ou professionnelles. Notre équipement de pointe garantit des résultats de haute qualité
-                    à chaque fois.
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <span class="section-tag">À propos</span>
+                <h2 class="section-title mt-2">Notre service de photocopie</h2>
+                <div class="divider" style="margin-left:0"></div>
+                <p data-editable="copie_content" class="text-muted">
+                    Bienvenue dans notre centre de photocopie à La Courneuve. Nous proposons une large gamme
+                    de services pour les particuliers et les professionnels. Notre matériel de pointe garantit
+                    des résultats nets et fidèles à chaque commande.
                 </p>
-                <p data-editable="copie_content2">
-                    Que vous ayez besoin de quelques copies ou de plusieurs milliers de pages, nous traitons
-                    toutes les commandes avec le même soin et la même rapidité.
+                <p data-editable="copie_content2" class="text-muted">
+                    Petite ou grande quantité, nous traitons toutes les commandes avec rapidité et soin.
                 </p>
-                <a href="devis.html" class="btn btn-primary rounded-pill px-4 font-weight-bold">
-                    Demander un devis gratuit
-                </a>
+                <a href="devis.html" class="btn btn-primary px-4 mt-2">Demander un devis gratuit</a>
             </div>
-            <div class="col-lg-5 mt-4 mt-lg-0">
-                <img src="service1.png" class="img-fluid rounded shadow" alt="Service de photocopie" loading="lazy">
+            <div class="col-lg-6">
+                <img src="service1.png" class="img-fluid rounded" style="border-radius:var(--radius-lg)!important;box-shadow:var(--shadow-md)"
+                     alt="Service de photocopie" loading="lazy">
             </div>
         </div>
     </section>
 
     <!-- Tarifs -->
-    <section class="py-5 bg-light">
+    <section class="py-5" style="background:var(--bg)">
         <div class="container">
-            <div class="text-center mb-4">
-                <h2 class="section-title">Nos Tarifs</h2>
-                <div class="section-divider"></div>
+            <div class="text-center mb-5">
+                <span class="section-tag">Tarifs</span>
+                <h2 class="section-title mt-2">Nos prix</h2>
+                <div class="divider"></div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 text-center p-3">
-                        <div class="card-icon">📄</div>
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="card h-100 text-center p-4">
+                        <div class="card-icon-wrap">📄</div>
                         <h5 class="card-title">Photocopie N&amp;B</h5>
-                        <p class="price-badge mb-3">0,10 € / page</p>
-                        <p class="card-text text-muted">Format A4 standard, qualité laser nette et précise.</p>
-                        <a href="devis.html" class="btn btn-primary btn-sm rounded-pill">Commander</a>
+                        <div class="price-badge mb-3">0,10 € / page</div>
+                        <p class="card-text">Format A4, laser, qualité garantie.</p>
+                        <a href="devis.html" class="btn btn-primary btn-sm mt-2">Commander</a>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 text-center p-3">
-                        <div class="card-icon">🎨</div>
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="card h-100 text-center p-4">
+                        <div class="card-icon-wrap">🎨</div>
                         <h5 class="card-title">Impression Couleur</h5>
-                        <p class="price-badge mb-3">0,20 € / page</p>
-                        <p class="card-text text-muted">Rendu fidèle des couleurs pour vos documents professionnels.</p>
-                        <a href="devis.html" class="btn btn-primary btn-sm rounded-pill">Commander</a>
+                        <div class="price-badge mb-3">0,20 € / page</div>
+                        <p class="card-text">Rendu fidèle pour documents pro.</p>
+                        <a href="devis.html" class="btn btn-primary btn-sm mt-2">Commander</a>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 text-center p-3">
-                        <div class="card-icon">📲</div>
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="card h-100 text-center p-4">
+                        <div class="card-icon-wrap">📲</div>
                         <h5 class="card-title">Numérisation</h5>
-                        <p class="price-badge mb-3">0,15 € / page</p>
-                        <p class="card-text text-muted">Vos documents numérisés en haute résolution et envoyés par email.</p>
-                        <a href="devis.html" class="btn btn-primary btn-sm rounded-pill">Commander</a>
+                        <div class="price-badge mb-3">0,15 € / page</div>
+                        <p class="card-text">Haute résolution, envoi par email.</p>
+                        <a href="devis.html" class="btn btn-primary btn-sm mt-2">Commander</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ / Infos pratiques -->
+    <!-- Infos pratiques -->
     <section class="container py-5">
-        <div class="text-center mb-4">
-            <h2 class="section-title">Informations pratiques</h2>
-            <div class="section-divider"></div>
+        <div class="text-center mb-5">
+            <span class="section-tag">Pratique</span>
+            <h2 class="section-title mt-2">Informations utiles</h2>
+            <div class="divider"></div>
         </div>
         <div class="row">
             <div class="col-md-6 mb-3">
-                <div class="contact-card">
-                    <div class="contact-icon">🕐</div>
-                    <h6 class="font-weight-bold">Horaires d'ouverture</h6>
-                    <p class="mb-0">Lundi – Vendredi : 9h00 – 18h00<br>Samedi : 10h00 – 14h00<br>Dimanche : Fermé</p>
+                <div class="info-card">
+                    <span class="info-icon">🕐</span>
+                    <h6>Horaires</h6>
+                    <p>Lun – Ven : 9h – 18h&nbsp;&nbsp;|&nbsp;&nbsp;Sam : 10h – 14h</p>
                 </div>
             </div>
             <div class="col-md-6 mb-3">
-                <div class="contact-card">
-                    <div class="contact-icon">📞</div>
-                    <h6 class="font-weight-bold">Nous contacter</h6>
-                    <p class="mb-0">
-                        Tél : <a href="tel:+33773006663">07 73 00 66 63</a><br>
-                        Email : <a href="mailto:copie93120@gmail.com">copie93120@gmail.com</a>
+                <div class="info-card">
+                    <span class="info-icon">📞</span>
+                    <h6>Téléphone / Email</h6>
+                    <p>
+                        <a href="tel:+33773006663">07 73 00 66 63</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a href="mailto:copie93120@gmail.com">copie93120@gmail.com</a>
                     </p>
                 </div>
             </div>
             <div class="col-md-6 mb-3">
-                <div class="contact-card">
-                    <div class="contact-icon">✅</div>
-                    <h6 class="font-weight-bold">Formats acceptés</h6>
-                    <p class="mb-0">PDF, Word, Excel, images (JPG, PNG), clé USB, email.</p>
+                <div class="info-card">
+                    <span class="info-icon">✅</span>
+                    <h6>Formats acceptés</h6>
+                    <p>PDF, Word, Excel, JPG, PNG, clé USB, email.</p>
                 </div>
             </div>
             <div class="col-md-6 mb-3">
-                <div class="contact-card">
-                    <div class="contact-icon">⚡</div>
-                    <h6 class="font-weight-bold">Délai de traitement</h6>
-                    <p class="mb-0">La plupart des commandes sont prêtes en moins d'une heure. Service express disponible.</p>
+                <div class="info-card">
+                    <span class="info-icon">⚡</span>
+                    <h6>Délai</h6>
+                    <p>La plupart des commandes prêtes en moins d'1h. Express disponible.</p>
                 </div>
             </div>
         </div>
         <div class="text-center mt-4">
-            <a href="https://wa.me/33773006663?text=Bonjour%2C%20je%20voudrais%20un%20renseignement." class="btn-whatsapp" target="_blank" rel="noopener">
-                💬 Contacter sur WhatsApp
-            </a>
+            <a href="https://wa.me/33773006663?text=Bonjour%2C%20je%20voudrais%20un%20renseignement."
+               class="btn-whatsapp" target="_blank" rel="noopener">💬 Contacter sur WhatsApp</a>
         </div>
     </section>
 
-    <!-- Pied de page -->
     <footer class="site-footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4">
-                    <h6>Copie Courneuve9</h6>
-                    <p style="font-size:.9rem">Votre partenaire de confiance pour la photocopie et l'impression à La Courneuve.</p>
+                    <span class="footer-brand">Copie Courneuve9</span>
+                    <p style="font-size:.88rem">Votre partenaire photocopie et impression à La Courneuve.</p>
                 </div>
                 <div class="col-md-4 mb-4">
                     <h6>Navigation</h6>
@@ -176,9 +163,9 @@
                 <div class="col-md-4 mb-4">
                     <h6>Contact</h6>
                     <ul class="footer-links">
-                        <li>📧 <a href="mailto:copie93120@gmail.com">copie93120@gmail.com</a></li>
-                        <li>📞 <a href="tel:+33773006663">07 73 00 66 63</a></li>
-                        <li>💬 <a href="https://wa.me/33773006663" target="_blank" rel="noopener">WhatsApp</a></li>
+                        <li><a href="mailto:copie93120@gmail.com">copie93120@gmail.com</a></li>
+                        <li><a href="tel:+33773006663">07 73 00 66 63</a></li>
+                        <li><a href="https://wa.me/33773006663" target="_blank" rel="noopener">WhatsApp</a></li>
                     </ul>
                 </div>
             </div>
@@ -186,7 +173,6 @@
         </div>
     </footer>
 
-    <!-- Scripts Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

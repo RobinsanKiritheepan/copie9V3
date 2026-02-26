@@ -7,46 +7,32 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        body { background: #f0f2f5; display: flex; flex-direction: column; min-height: 100vh; }
-        .error-section { flex: 1; display: flex; align-items: center; justify-content: center; text-align: center; padding: 3rem 1rem; }
-        .error-icon { font-size: 6rem; margin-bottom: 1.5rem; }
-        .error-code { font-size: 5rem; font-weight: 900; color: #0d6efd; line-height: 1; }
+        body { display:flex; flex-direction:column; min-height:100vh; background:var(--bg); }
+        .error-body { flex:1; display:flex; align-items:center; justify-content:center; text-align:center; padding:4rem 1rem; }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <a class="navbar-brand" href="index.html">Copie <span>Courneuve9</span></a>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html">Copie <span class="brand-accent">Courneuve9</span></a>
     </nav>
 
-    <div class="error-section">
+    <div class="error-body">
         <div>
-            <div class="error-icon">🔍</div>
-            <div class="error-code">404</div>
-            <h1 class="font-weight-bold mt-3 mb-2">Page introuvable</h1>
-            <p class="text-muted mb-4">
-                Oups ! La page que vous recherchez n'existe pas ou a été déplacée.
-            </p>
-            <a href="index.html" class="btn btn-primary rounded-pill px-5 font-weight-bold mr-2">
-                Retour à l'accueil
-            </a>
-            <a href="devis.html" class="btn btn-outline-primary rounded-pill px-5 font-weight-bold">
-                Demander un devis
-            </a>
-
-            <div class="mt-5">
-                <p class="text-muted small">Ou contactez-nous directement :</p>
-                <a href="https://wa.me/33773006663" class="btn-whatsapp" target="_blank" rel="noopener">
-                    💬 WhatsApp
-                </a>
+            <div style="font-size:5rem;margin-bottom:1rem">🔍</div>
+            <h1 style="font-size:5rem;font-weight:900;color:var(--primary);line-height:1">404</h1>
+            <h2 style="font-weight:800;margin:.5rem 0 1rem">Page introuvable</h2>
+            <p class="text-muted mb-4">Cette page n'existe pas ou a été déplacée.</p>
+            <a href="index.html" class="btn btn-primary px-5 mr-2">Accueil</a>
+            <a href="devis.html" class="btn btn-outline-primary px-5">Demander un devis</a>
+            <div class="mt-4">
+                <a href="https://wa.me/33773006663" class="btn-whatsapp" target="_blank" rel="noopener">💬 WhatsApp</a>
             </div>
         </div>
     </div>
 
-    <!-- Pied de page -->
-    <footer class="site-footer">
+    <footer class="site-footer" style="margin-top:0">
         <div class="container">
-            <div class="footer-bottom" style="border-top:none;padding-top:0">
+            <div class="footer-bottom" style="border-top:none;padding-top:0;margin-top:0">
                 &copy; 2024–2025 Copie Courneuve9. Tous droits réservés.
             </div>
         </div>

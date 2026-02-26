@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Copie Courneuve9 – Photocopie, impression numérique et offset, numérisation à La Courneuve. Devis rapide au 07 73 00 66 63.">
+    <meta name="description" content="Copie Courneuve9 – Photocopie, impression numérique et offset, numérisation à La Courneuve. Qualité pro, tarifs abordables.">
     <title>Copie Courneuve9 – Photocopie &amp; Impression La Courneuve</title>
-    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Styles partagés -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Barre de navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <a class="navbar-brand" href="index.html">Copie <span>Courneuve9</span></a>
+    <!-- ── Navbar ── -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html">Copie <span class="brand-accent">Courneuve9</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
             <span class="navbar-toggler-icon"></span>
@@ -31,41 +29,41 @@
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- ── Hero ── -->
     <header class="hero">
         <div class="container">
             <h1 data-editable="index_header_title">Bienvenue chez Copie Courneuve9</h1>
             <p class="lead" data-editable="index_header_subtitle">
-                Vos solutions de photocopie, impression et numérisation rapides et fiables à La Courneuve
+                Photocopie, impression et numérisation rapides et abordables à La Courneuve.
             </p>
             <a href="devis.html" class="btn-hero">Demander un devis</a>
-            <a href="#services" class="btn-hero btn-hero-outline">Nos services</a>
+            <a href="#services" class="btn-hero btn-hero-outline">Découvrir nos services</a>
         </div>
     </header>
 
-    <!-- Stats -->
+    <!-- ── Stats ── -->
     <div class="stats-bar">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row">
                 <div class="col-6 col-md-3">
                     <div class="stat-item">
-                        <span class="stat-number">0,10€</span>
-                        <span class="stat-label">La photocopie N&amp;B</span>
+                        <span class="stat-number">0,10 €</span>
+                        <span class="stat-label">Photocopie N&amp;B / page</span>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
                     <div class="stat-item">
-                        <span class="stat-number">0,20€</span>
-                        <span class="stat-label">La page couleur</span>
+                        <span class="stat-number">0,20 €</span>
+                        <span class="stat-label">Impression couleur / page</span>
                     </div>
                 </div>
-                <div class="col-6 col-md-3 mt-3 mt-md-0">
+                <div class="col-6 col-md-3">
                     <div class="stat-item">
-                        <span class="stat-number">Rapide</span>
-                        <span class="stat-label">Délai express disponible</span>
+                        <span class="stat-number">Express</span>
+                        <span class="stat-label">Délai rapide disponible</span>
                     </div>
                 </div>
-                <div class="col-6 col-md-3 mt-3 mt-md-0">
+                <div class="col-6 col-md-3">
                     <div class="stat-item">
                         <span class="stat-number">Pro</span>
                         <span class="stat-label">Qualité professionnelle</span>
@@ -75,87 +73,92 @@
         </div>
     </div>
 
-    <!-- Section Services -->
+    <!-- ── Services ── -->
     <section id="services" class="container py-5">
-        <div class="text-center mb-2">
-            <h2 class="section-title">Nos Services</h2>
-            <div class="section-divider"></div>
-            <p class="section-subtitle">Tout ce dont vous avez besoin pour vos documents</p>
+        <div class="text-center mb-5">
+            <span class="section-tag">Nos Services</span>
+            <h2 class="section-title">Tout pour vos documents</h2>
+            <div class="divider"></div>
+            <p class="section-sub">Des solutions rapides et abordables pour particuliers et professionnels.</p>
         </div>
 
-        <!-- Barre de recherche (injectée par search.js) -->
         <div class="row" id="servicesContainer">
             <div class="col-md-4 service-card mb-4" data-service-index="0">
-                <div class="card h-100 text-center">
+                <div class="card h-100">
                     <img src="service1.png" class="card-img-top" alt="Photocopie haute qualité" loading="lazy">
                     <div class="card-body">
-                        <div class="card-icon">📄</div>
                         <h5 class="card-title">Photocopie</h5>
-                        <p class="card-text">Des photocopies de haute qualité couleur et noir &amp; blanc à des prix abordables.</p>
+                        <p class="card-text">Copies couleur et noir &amp; blanc, qualité laser, prix abordables.</p>
                         <span class="price-badge">dès 0,10 € / page</span>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 service-card mb-4" data-service-index="1">
-                <div class="card h-100 text-center">
+                <div class="card h-100">
                     <img src="service2.png" class="card-img-top" alt="Impression numérique" loading="lazy">
                     <div class="card-body">
-                        <div class="card-icon">🖨️</div>
                         <h5 class="card-title">Impression</h5>
-                        <p class="card-text">Impressions couleur et noir &amp; blanc pour tous vos besoins personnels et professionnels.</p>
+                        <p class="card-text">Impression numérique et offset pour tous vos besoins.</p>
                         <span class="price-badge">dès 0,20 € / page</span>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 service-card mb-4" data-service-index="2">
-                <div class="card h-100 text-center">
+                <div class="card h-100">
                     <img src="service3.png" class="card-img-top" alt="Numérisation de documents" loading="lazy">
                     <div class="card-body">
-                        <div class="card-icon">📲</div>
                         <h5 class="card-title">Numérisation</h5>
-                        <p class="card-text">Numérisez vos documents rapidement et recevez-les par email en quelques minutes.</p>
+                        <p class="card-text">Numérisez vos documents en haute résolution, reçus par email.</p>
                         <span class="price-badge">dès 0,15 € / page</span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="text-center mt-2">
+        <div class="text-center">
             <button id="addServiceBtn" class="btn btn-success d-none mb-4">+ Ajouter un service</button>
         </div>
     </section>
 
-    <!-- Pourquoi nous choisir -->
-    <section class="py-5 bg-light">
+    <!-- ── Pourquoi nous ── -->
+    <section class="py-5" style="background: var(--bg);">
         <div class="container">
-            <div class="text-center mb-4">
-                <h2 class="section-title">Pourquoi nous choisir ?</h2>
-                <div class="section-divider"></div>
+            <div class="text-center mb-5">
+                <span class="section-tag">Nos avantages</span>
+                <h2 class="section-title">Pourquoi choisir Copie Courneuve9 ?</h2>
+                <div class="divider"></div>
             </div>
-            <div class="row text-center">
+            <div class="row">
                 <div class="col-md-4 mb-4">
-                    <div class="feature-icon">⚡</div>
-                    <h5 class="font-weight-bold">Service rapide</h5>
-                    <p class="text-muted">Vos commandes traitées en quelques minutes, sans attendre.</p>
+                    <div class="feature-box">
+                        <div class="feature-icon">⚡</div>
+                        <h5>Service rapide</h5>
+                        <p>Commandes traitées en quelques minutes. Délai express disponible sur demande.</p>
+                    </div>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <div class="feature-icon">🏆</div>
-                    <h5 class="font-weight-bold">Qualité garantie</h5>
-                    <p class="text-muted">Équipements professionnels pour des impressions nettes et précises.</p>
+                    <div class="feature-box">
+                        <div class="feature-icon">🏆</div>
+                        <h5>Qualité garantie</h5>
+                        <p>Équipements professionnels pour des impressions nettes et fidèles à chaque fois.</p>
+                    </div>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <div class="feature-icon">💰</div>
-                    <h5 class="font-weight-bold">Prix compétitifs</h5>
-                    <p class="text-muted">Les meilleurs tarifs de la région, sans compromis sur la qualité.</p>
+                    <div class="feature-box">
+                        <div class="feature-icon">💰</div>
+                        <h5>Prix compétitifs</h5>
+                        <p>Meilleurs tarifs de la région. Pas de frais cachés, devis gratuit en 24h.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Galerie -->
+    <!-- ── Galerie ── -->
     <section id="gallery" class="container py-5">
-        <div class="text-center mb-4">
-            <h2 class="section-title">Galerie</h2>
-            <div class="section-divider"></div>
+        <div class="text-center mb-5">
+            <span class="section-tag">Galerie</span>
+            <h2 class="section-title">Nos réalisations</h2>
+            <div class="divider"></div>
         </div>
         <div class="row" id="galleryContainer">
             <div class="col-md-4 mb-3">
@@ -170,60 +173,71 @@
         </div>
     </section>
 
-    <!-- Section Contact -->
-    <section id="contact" class="py-5 bg-light">
+    <!-- ── Contact ── -->
+    <section id="contact" class="py-5" style="background: var(--bg);">
         <div class="container">
-            <div class="text-center mb-4">
+            <div class="text-center mb-5">
+                <span class="section-tag">Contact</span>
                 <h2 class="section-title">Contactez-nous</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle">Nous répondons rapidement à toutes vos demandes</p>
+                <div class="divider"></div>
+                <p class="section-sub">Réponse sous 24h par email ou immédiatement sur WhatsApp.</p>
             </div>
-            <div class="row">
+
+            <div class="row align-items-start">
                 <!-- Formulaire -->
-                <div class="col-lg-7 mb-4">
-                    <div class="card p-4">
-                        <form id="contactForm" novalidate>
-                            <div class="form-group">
-                                <label for="name">Nom <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="name" placeholder="Votre nom complet" required autocomplete="name">
-                                <div class="invalid-feedback">Veuillez entrer votre nom.</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email <span class="text-danger">*</span></label>
-                                <input type="email" class="form-control" id="email" placeholder="votre@email.com" required autocomplete="email">
-                                <div class="invalid-feedback">Veuillez entrer un email valide.</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message <span class="text-danger">*</span></label>
-                                <textarea class="form-control" id="message" rows="4" placeholder="Votre message..." required></textarea>
-                                <div class="invalid-feedback">Veuillez écrire votre message.</div>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block font-weight-bold">Envoyer le message</button>
-                            <div class="form-success" id="contactSuccess">
-                                ✅ Merci ! Votre message a bien été reçu. Nous vous répondrons sous 24h.
-                            </div>
-                        </form>
+                <div class="col-lg-7 mb-4 mb-lg-0">
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <form id="contactForm" novalidate>
+                                <div class="form-group">
+                                    <label for="name">Nom <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="name"
+                                           placeholder="Votre nom complet" required autocomplete="name">
+                                    <div class="invalid-feedback">Veuillez entrer votre nom.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" id="email"
+                                           placeholder="votre@email.com" required autocomplete="email">
+                                    <div class="invalid-feedback">Veuillez entrer un email valide.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message <span class="text-danger">*</span></label>
+                                    <textarea class="form-control" id="message" rows="4"
+                                              placeholder="Votre message…" required></textarea>
+                                    <div class="invalid-feedback">Veuillez écrire votre message.</div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    Envoyer le message
+                                </button>
+                                <div class="form-success" id="contactSuccess">
+                                    ✅ Message prêt ! Votre client email va s'ouvrir pour envoyer.
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-                <!-- Infos contact -->
+
+                <!-- Infos -->
                 <div class="col-lg-5">
-                    <div class="contact-card mb-3">
-                        <div class="contact-icon">📞</div>
-                        <h6 class="font-weight-bold">Téléphone</h6>
+                    <div class="info-card mb-3">
+                        <span class="info-icon">📞</span>
+                        <h6>Téléphone</h6>
                         <a href="tel:+33773006663">07 73 00 66 63</a>
                     </div>
-                    <div class="contact-card mb-3">
-                        <div class="contact-icon">📧</div>
-                        <h6 class="font-weight-bold">Email</h6>
+                    <div class="info-card mb-3">
+                        <span class="info-icon">📧</span>
+                        <h6>Email</h6>
                         <a href="mailto:copie93120@gmail.com">copie93120@gmail.com</a>
                     </div>
-                    <div class="contact-card mb-3">
-                        <div class="contact-icon">🕐</div>
-                        <h6 class="font-weight-bold">Horaires</h6>
-                        <p class="mb-0">Lun–Ven : 9h – 18h<br>Samedi : 10h – 14h</p>
+                    <div class="info-card mb-3">
+                        <span class="info-icon">🕐</span>
+                        <h6>Horaires</h6>
+                        <p>Lun – Ven : 9h – 18h<br>Samedi : 10h – 14h</p>
                     </div>
                     <div class="text-center mt-3">
-                        <a href="https://wa.me/33773006663?text=Bonjour%2C%20je%20voudrais%20un%20renseignement." class="btn-whatsapp" target="_blank" rel="noopener">
+                        <a href="https://wa.me/33773006663?text=Bonjour%2C%20je%20voudrais%20un%20renseignement."
+                           class="btn-whatsapp" target="_blank" rel="noopener">
                             💬 Écrire sur WhatsApp
                         </a>
                     </div>
@@ -232,13 +246,13 @@
         </div>
     </section>
 
-    <!-- Pied de page -->
+    <!-- ── Footer ── -->
     <footer class="site-footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4">
-                    <h6>Copie Courneuve9</h6>
-                    <p style="font-size:.9rem">Votre partenaire de confiance pour la photocopie et l'impression à La Courneuve.</p>
+                    <span class="footer-brand">Copie Courneuve9</span>
+                    <p style="font-size:.88rem">Votre partenaire photocopie et impression à La Courneuve depuis des années.</p>
                 </div>
                 <div class="col-md-4 mb-4">
                     <h6>Navigation</h6>
@@ -253,52 +267,40 @@
                 <div class="col-md-4 mb-4">
                     <h6>Contact</h6>
                     <ul class="footer-links">
-                        <li>📧 <a href="mailto:copie93120@gmail.com">copie93120@gmail.com</a></li>
-                        <li>📞 <a href="tel:+33773006663">07 73 00 66 63</a></li>
-                        <li>💬 <a href="https://wa.me/33773006663" target="_blank" rel="noopener">WhatsApp</a></li>
+                        <li><a href="mailto:copie93120@gmail.com">copie93120@gmail.com</a></li>
+                        <li><a href="tel:+33773006663">07 73 00 66 63</a></li>
+                        <li><a href="https://wa.me/33773006663" target="_blank" rel="noopener">WhatsApp</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                &copy; 2024–2025 Copie Courneuve9. Tous droits réservés.
-            </div>
+            <div class="footer-bottom">&copy; 2024–2025 Copie Courneuve9. Tous droits réservés.</div>
         </div>
     </footer>
 
-    <!-- Scripts Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Formulaire contact avec validation -->
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const form = this;
-            let valid = true;
-            form.querySelectorAll('[required]').forEach(function(field) {
-                if (!field.value.trim()) {
-                    field.classList.add('is-invalid');
-                    valid = false;
-                } else {
-                    field.classList.remove('is-invalid');
-                }
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var valid = true;
+            this.querySelectorAll('[required]').forEach(function(f) {
+                if (!f.value.trim()) { f.classList.add('is-invalid'); valid = false; }
+                else f.classList.remove('is-invalid');
             });
             if (!valid) return;
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
-            const subject = encodeURIComponent('Message depuis le site Copie Courneuve9');
-            const body = encodeURIComponent('Nom : ' + name + '\nEmail : ' + email + '\n\nMessage :\n' + message);
+            var name    = document.getElementById('name').value.trim();
+            var email   = document.getElementById('email').value.trim();
+            var message = document.getElementById('message').value.trim();
+            var subject = encodeURIComponent('Message depuis le site Copie Courneuve9');
+            var body    = encodeURIComponent('Nom : ' + name + '\nEmail : ' + email + '\n\n' + message);
             window.location.href = 'mailto:copie93120@gmail.com?subject=' + subject + '&body=' + body;
             document.getElementById('contactSuccess').style.display = 'block';
-            form.reset();
+            this.reset();
         });
     </script>
-    <!-- Script d'administration -->
     <script src="admin.js"></script>
-    <!-- Chatbot -->
     <script src="chatbot.js"></script>
-    <!-- Barre de recherche -->
     <script src="search.js"></script>
 </body>
 </html>
