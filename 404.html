@@ -1,41 +1,75 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page introuvable – Copie Courneuve9</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body { display:flex; flex-direction:column; min-height:100vh; background:var(--bg); }
-        .error-body { flex:1; display:flex; align-items:center; justify-content:center; text-align:center; padding:4rem 1rem; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page introuvable – Copie Courneuve9</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: { preflight: false },
+      important: true,
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+    a { text-decoration: none !important; }
+  </style>
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="index.html">Copie <span class="brand-accent">Courneuve9</span></a>
-    </nav>
+<body class="bg-white text-gray-900">
 
-    <div class="error-body">
-        <div>
-            <div style="font-size:5rem;margin-bottom:1rem">🔍</div>
-            <h1 style="font-size:5rem;font-weight:900;color:var(--primary);line-height:1">404</h1>
-            <h2 style="font-weight:800;margin:.5rem 0 1rem">Page introuvable</h2>
-            <p class="text-muted mb-4">Cette page n'existe pas ou a été déplacée.</p>
-            <a href="index.html" class="btn btn-primary px-5 mr-2">Accueil</a>
-            <a href="devis.html" class="btn btn-outline-primary px-5">Demander un devis</a>
-            <div class="mt-4">
-                <a href="https://wa.me/33773006663" class="btn-whatsapp" target="_blank" rel="noopener">💬 WhatsApp</a>
-            </div>
-        </div>
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm" style="backdrop-filter:blur(8px)">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="text-xl font-extrabold tracking-tight text-blue-600">
+          Copie <span class="text-amber-500">Courneuve9</span>
+        </a>
+      </div>
     </div>
+  </nav>
 
-    <footer class="site-footer" style="margin-top:0">
-        <div class="container">
-            <div class="footer-bottom" style="border-top:none;padding-top:0;margin-top:0">
-                &copy; 2024–2025 Copie Courneuve9. Tous droits réservés.
-            </div>
-        </div>
-    </footer>
+  <!-- Error Content -->
+  <div class="flex-1 flex items-center justify-center px-4 py-16">
+    <div class="text-center max-w-md">
+      <div class="w-24 h-24 bg-blue-50 rounded-3xl flex items-center justify-center mx-auto mb-6">
+        <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+      </div>
+      <h1 class="text-7xl font-black text-blue-600 leading-none mb-2">404</h1>
+      <h2 class="text-2xl font-extrabold mb-3">Page introuvable</h2>
+      <p class="text-gray-500 text-sm mb-8">Cette page n'existe pas ou a été déplacée.</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="index.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl transition-colors duration-200">
+          Accueil
+        </a>
+        <a href="devis.html" class="inline-block border border-gray-300 text-gray-700 font-semibold px-6 py-3 rounded-xl hover:bg-gray-50 transition-colors duration-200">
+          Demander un devis
+        </a>
+      </div>
+      <div class="mt-6">
+        <a href="https://wa.me/33773006663" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-2.5 px-5 rounded-xl transition-colors duration-200 text-sm">
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-5">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-gray-600">
+      &copy; 2024–2025 Copie Courneuve9. Tous droits réservés.
+    </div>
+  </footer>
 </body>
 </html>

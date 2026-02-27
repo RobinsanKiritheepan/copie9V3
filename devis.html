@@ -1,181 +1,266 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Demandez un devis gratuit pour vos impressions et photocopies. Réponse sous 24h.">
-    <title>Demande de Devis – Copie Courneuve9</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Demandez un devis gratuit pour vos impressions et photocopies à La Courneuve. Réponse sous 24h. Copie Courneuve9.">
+  <title>Demande de Devis – Copie Courneuve9</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: { preflight: false },
+      important: true,
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            primary: { 50:'#eff6ff', 100:'#dbeafe', 600:'#2563eb', 700:'#1d4ed8', 800:'#1e40af' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    a { text-decoration: none !important; }
+  </style>
 </head>
-<body>
+<body class="bg-white text-gray-900">
 
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="index.html">Copie <span class="brand-accent">Courneuve9</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
-            <span class="navbar-toggler-icon"></span>
+  <!-- ── Navbar ── -->
+  <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm" style="backdrop-filter:blur(8px)">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="text-xl font-extrabold tracking-tight text-blue-600">
+          Copie <span class="text-amber-500">Courneuve9</span>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="index.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">Accueil</a>
+          <a href="nos_produits.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">Nos Produits</a>
+          <a href="copie.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">Copie La Courneuve</a>
+          <a href="devis.html"        class="px-3 py-2 rounded-lg text-sm font-semibold text-blue-600 bg-blue-50">Devis</a>
+          <a href="decouverte.html"   class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">Découverte</a>
+          <a href="admin.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">Admin</a>
+        </div>
+        <button id="menuBtn" type="button" class="md:hidden p-2 rounded-lg text-gray-500 hover:bg-gray-100 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-                <li class="nav-item"><a class="nav-link" href="nos_produits.html">Nos Produits</a></li>
-                <li class="nav-item"><a class="nav-link" href="copie.html">Copie La Courneuve</a></li>
-                <li class="nav-item active"><a class="nav-link" href="devis.html">Devis</a></li>
-                <li class="nav-item"><a class="nav-link" href="decouverte.html">Découverte</a></li>
-                <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="page-header">
-        <h1 data-editable="devis_title">Demande de Devis</h1>
-        <p>Gratuit · Réponse sous 24h</p>
+      </div>
+      <div id="mobileMenu" class="hidden md:hidden border-t border-gray-100 py-3 flex flex-col gap-1">
+        <a href="index.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Accueil</a>
+        <a href="nos_produits.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Nos Produits</a>
+        <a href="copie.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Copie La Courneuve</a>
+        <a href="devis.html"        class="px-3 py-2 rounded-lg text-sm font-semibold text-blue-600 bg-blue-50">Devis</a>
+        <a href="decouverte.html"   class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Découverte</a>
+        <a href="admin.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Admin</a>
+      </div>
     </div>
+  </nav>
 
-    <section class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="card">
-                    <div class="card-body p-4 p-md-5">
-                        <h3 class="mb-1" style="font-weight:800">Décrivez votre projet</h3>
-                        <p class="text-muted mb-4" style="font-size:.92rem">Remplissez le formulaire ci-dessous. Nous vous répondrons dans les plus brefs délais.</p>
+  <!-- ── Page Header ── -->
+  <div class="relative overflow-hidden bg-gradient-to-br from-blue-800 via-blue-600 to-sky-500 py-14 text-center text-white hero-pattern">
+    <div class="relative z-10">
+      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight" data-editable="devis_title">Demande de Devis</h1>
+      <p class="text-blue-100 mt-2 text-sm md:text-base">Gratuit · Réponse sous 24h</p>
+    </div>
+  </div>
 
-                        <form id="quoteForm" novalidate>
-                            <div class="row">
-                                <div class="col-sm-6 form-group">
-                                    <label for="name">Nom <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="name"
-                                           placeholder="Jean Dupont" required autocomplete="name">
-                                    <div class="invalid-feedback">Veuillez entrer votre nom.</div>
-                                </div>
-                                <div class="col-sm-6 form-group">
-                                    <label for="email">Email <span class="text-danger">*</span></label>
-                                    <input type="email" class="form-control" id="email"
-                                           placeholder="jean@exemple.fr" required autocomplete="email">
-                                    <div class="invalid-feedback">Email invalide.</div>
-                                </div>
-                            </div>
+  <!-- ── Form Section ── -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="flex justify-center">
+      <div class="w-full max-w-2xl">
 
-                            <div class="form-group">
-                                <label for="phone">Téléphone</label>
-                                <input type="tel" class="form-control" id="phone"
-                                       placeholder="06 00 00 00 00" autocomplete="tel">
-                            </div>
+        <!-- Card -->
+        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-10">
+          <h2 class="text-xl font-extrabold mb-1">Décrivez votre projet</h2>
+          <p class="text-gray-500 text-sm mb-6">Remplissez le formulaire ci-dessous. Nous vous répondrons dans les plus brefs délais.</p>
 
-                            <div class="form-group">
-                                <label for="service">Type de service <span class="text-danger">*</span></label>
-                                <select class="form-control" id="service" required>
-                                    <option value="">— Sélectionnez un service —</option>
-                                    <option>Photocopie noir &amp; blanc</option>
-                                    <option>Photocopie couleur</option>
-                                    <option>Impression numérique</option>
-                                    <option>Impression offset</option>
-                                    <option>Numérisation</option>
-                                    <option>Chemise à rabat personnalisée</option>
-                                    <option>Autre</option>
-                                </select>
-                                <div class="invalid-feedback">Veuillez sélectionner un service.</div>
-                            </div>
+          <form id="quoteForm" novalidate>
 
-                            <div class="form-group">
-                                <label for="quantity">Quantité estimée</label>
-                                <input type="number" class="form-control" id="quantity"
-                                       placeholder="ex : 100 pages" min="1">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="details">Détails <span class="text-danger">*</span></label>
-                                <textarea class="form-control" id="details" rows="4"
-                                          placeholder="Format, couleur, finition souhaitée…" required></textarea>
-                                <div class="invalid-feedback">Veuillez décrire votre demande.</div>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary btn-block">
-                                Envoyer ma demande
-                            </button>
-                            <div class="form-success" id="quoteSuccess">
-                                ✅ Votre client email va s'ouvrir pour envoyer la demande.
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Contact direct -->
-                <div class="text-center mt-4 pt-2">
-                    <p class="text-muted" style="font-size:.9rem">Vous préférez un contact direct ?</p>
-                    <a href="https://wa.me/33773006663?text=Bonjour%2C%20je%20voudrais%20un%20devis."
-                       class="btn-whatsapp mr-2" target="_blank" rel="noopener">💬 WhatsApp</a>
-                    <a href="tel:+33773006663"
-                       class="btn btn-outline-secondary rounded-pill px-4">📞 07 73 00 66 63</a>
-                </div>
+            <!-- Name + Email row -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label for="name" class="block text-sm font-semibold text-gray-700 mb-1">Nom <span class="text-red-500">*</span></label>
+                <input type="text" id="name" required autocomplete="name"
+                       placeholder="Jean Dupont"
+                       class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                <p class="text-red-500 text-xs mt-1 hidden" data-error="name">Veuillez entrer votre nom.</p>
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-semibold text-gray-700 mb-1">Email <span class="text-red-500">*</span></label>
+                <input type="email" id="email" required autocomplete="email"
+                       placeholder="jean@exemple.fr"
+                       class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                <p class="text-red-500 text-xs mt-1 hidden" data-error="email">Email invalide.</p>
+              </div>
             </div>
-        </div>
-    </section>
 
-    <footer class="site-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <span class="footer-brand">Copie Courneuve9</span>
-                    <p style="font-size:.88rem">Votre partenaire photocopie et impression à La Courneuve.</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h6>Navigation</h6>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="nos_produits.html">Nos Produits</a></li>
-                        <li><a href="copie.html">Copie La Courneuve</a></li>
-                        <li><a href="devis.html">Demande de Devis</a></li>
-                        <li><a href="decouverte.html">Découverte</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h6>Contact</h6>
-                    <ul class="footer-links">
-                        <li><a href="mailto:copie93120@gmail.com">copie93120@gmail.com</a></li>
-                        <li><a href="tel:+33773006663">07 73 00 66 63</a></li>
-                        <li><a href="https://wa.me/33773006663" target="_blank" rel="noopener">WhatsApp</a></li>
-                    </ul>
-                </div>
+            <!-- Phone -->
+            <div class="mb-4">
+              <label for="phone" class="block text-sm font-semibold text-gray-700 mb-1">Téléphone</label>
+              <input type="tel" id="phone" autocomplete="tel"
+                     placeholder="06 00 00 00 00"
+                     class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
             </div>
-            <div class="footer-bottom">&copy; 2024–2025 Copie Courneuve9. Tous droits réservés.</div>
-        </div>
-    </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        document.getElementById('quoteForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            var valid = true;
-            this.querySelectorAll('[required]').forEach(function(f) {
-                if (!f.value.trim()) { f.classList.add('is-invalid'); valid = false; }
-                else f.classList.remove('is-invalid');
-            });
-            if (!valid) return;
-            var name    = document.getElementById('name').value.trim();
-            var email   = document.getElementById('email').value.trim();
-            var phone   = document.getElementById('phone').value.trim();
-            var service = document.getElementById('service').value;
-            var qty     = document.getElementById('quantity').value.trim();
-            var details = document.getElementById('details').value.trim();
-            var subject = encodeURIComponent('Demande de devis – ' + service);
-            var body    = encodeURIComponent(
-                'Nom : ' + name + '\n' +
-                'Email : ' + email + '\n' +
-                (phone ? 'Tél : ' + phone + '\n' : '') +
-                'Service : ' + service + '\n' +
-                (qty ? 'Quantité : ' + qty + '\n' : '') +
-                '\nDétails :\n' + details
-            );
-            window.location.href = 'mailto:copie93120@gmail.com?subject=' + subject + '&body=' + body;
-            document.getElementById('quoteSuccess').style.display = 'block';
-            this.reset();
-        });
-    </script>
-    <script src="admin.js"></script>
-    <script src="chatbot.js"></script>
+            <!-- Service -->
+            <div class="mb-4">
+              <label for="service" class="block text-sm font-semibold text-gray-700 mb-1">Type de service <span class="text-red-500">*</span></label>
+              <select id="service" required
+                      class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition bg-white">
+                <option value="">— Sélectionnez un service —</option>
+                <option>Photocopie noir &amp; blanc</option>
+                <option>Photocopie couleur</option>
+                <option>Impression numérique</option>
+                <option>Impression offset</option>
+                <option>Numérisation</option>
+                <option>Chemise à rabat personnalisée</option>
+                <option>Autre</option>
+              </select>
+              <p class="text-red-500 text-xs mt-1 hidden" data-error="service">Veuillez sélectionner un service.</p>
+            </div>
+
+            <!-- Quantity -->
+            <div class="mb-4">
+              <label for="quantity" class="block text-sm font-semibold text-gray-700 mb-1">Quantité estimée</label>
+              <input type="number" id="quantity" min="1"
+                     placeholder="ex : 100 pages"
+                     class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+            </div>
+
+            <!-- Details -->
+            <div class="mb-6">
+              <label for="details" class="block text-sm font-semibold text-gray-700 mb-1">Détails <span class="text-red-500">*</span></label>
+              <textarea id="details" rows="4" required
+                        placeholder="Format souhaité, couleur, finition, délai…"
+                        class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none"></textarea>
+              <p class="text-red-500 text-xs mt-1 hidden" data-error="details">Veuillez décrire votre demande.</p>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit"
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-colors duration-200">
+              Envoyer ma demande
+            </button>
+
+            <!-- Success -->
+            <div id="quoteSuccess" class="hidden mt-3 bg-green-50 border border-green-200 text-green-700 rounded-xl px-4 py-3 text-sm">
+              ✅ Votre client email va s'ouvrir pour envoyer la demande.
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Direct contact -->
+        <div class="text-center mt-8">
+          <p class="text-gray-500 text-sm mb-4">Vous préférez un contact direct ?</p>
+          <div class="flex flex-wrap justify-center gap-3">
+            <a href="https://wa.me/33773006663?text=Bonjour%2C%20je%20voudrais%20un%20devis."
+               target="_blank" rel="noopener"
+               class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-xl transition-colors duration-200">
+              💬 WhatsApp
+            </a>
+            <a href="tel:+33773006663"
+               class="inline-flex items-center gap-2 border border-gray-300 text-gray-700 font-semibold py-3 px-6 rounded-xl hover:bg-gray-50 transition-colors duration-200">
+              📞 07 73 00 66 63
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="bg-gray-900 text-gray-400 pt-12 mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8">
+        <div>
+          <div class="text-white text-xl font-extrabold tracking-tight mb-3">Copie <span class="text-amber-400">Courneuve9</span></div>
+          <p class="text-sm">Votre partenaire photocopie et impression à La Courneuve.</p>
+        </div>
+        <div>
+          <h6 class="text-white text-xs font-bold uppercase tracking-widest mb-4">Navigation</h6>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html"        class="hover:text-white transition-colors">Accueil</a></li>
+            <li><a href="nos_produits.html" class="hover:text-white transition-colors">Nos Produits</a></li>
+            <li><a href="copie.html"        class="hover:text-white transition-colors">Copie La Courneuve</a></li>
+            <li><a href="devis.html"        class="hover:text-white transition-colors">Demande de Devis</a></li>
+            <li><a href="decouverte.html"   class="hover:text-white transition-colors">Découverte</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6 class="text-white text-xs font-bold uppercase tracking-widest mb-4">Contact</h6>
+          <ul class="space-y-2 text-sm">
+            <li><a href="mailto:copie93120@gmail.com" class="hover:text-white transition-colors">copie93120@gmail.com</a></li>
+            <li><a href="tel:+33773006663"            class="hover:text-white transition-colors">07 73 00 66 63</a></li>
+            <li><a href="https://wa.me/33773006663" target="_blank" rel="noopener" class="hover:text-white transition-colors">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 py-5 text-center text-xs text-gray-600">&copy; 2024–2025 Copie Courneuve9. Tous droits réservés.</div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    document.getElementById('menuBtn').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+
+    document.getElementById('quoteForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var valid = true;
+      var fields = [
+        { id: 'name',    errorKey: 'name' },
+        { id: 'email',   errorKey: 'email' },
+        { id: 'service', errorKey: 'service' },
+        { id: 'details', errorKey: 'details' }
+      ];
+      fields.forEach(function(field) {
+        var el  = document.getElementById(field.id);
+        var err = document.querySelector('[data-error="' + field.errorKey + '"]');
+        if (!el.value.trim()) {
+          el.classList.add('border-red-400');
+          err.classList.remove('hidden');
+          valid = false;
+        } else {
+          el.classList.remove('border-red-400');
+          err.classList.add('hidden');
+        }
+      });
+      if (!valid) return;
+
+      var name    = document.getElementById('name').value.trim();
+      var email   = document.getElementById('email').value.trim();
+      var phone   = document.getElementById('phone').value.trim();
+      var service = document.getElementById('service').value;
+      var qty     = document.getElementById('quantity').value.trim();
+      var details = document.getElementById('details').value.trim();
+
+      var subject = encodeURIComponent('Demande de devis – ' + service);
+      var body    = encodeURIComponent(
+        'Nom : ' + name + '\n' +
+        'Email : ' + email + '\n' +
+        (phone ? 'Tél : ' + phone + '\n' : '') +
+        'Service : ' + service + '\n' +
+        (qty ? 'Quantité : ' + qty + '\n' : '') +
+        '\nDétails :\n' + details
+      );
+      window.location.href = 'mailto:copie93120@gmail.com?subject=' + subject + '&body=' + body;
+      document.getElementById('quoteSuccess').classList.remove('hidden');
+      this.reset();
+    });
+  </script>
+  <script src="admin.js"></script>
+  <script src="chatbot.js"></script>
 </body>
 </html>

@@ -1,163 +1,248 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Chemises à rabat personnalisées à La Courneuve. Logo, couleurs, format A4. À partir de 20€.">
-    <title>Chemise à Rabat – Copie Courneuve9</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Chemises à rabat personnalisées à La Courneuve. Logo, couleurs, format A4. À partir de 20€. Copie Courneuve9.">
+  <title>Chemise à Rabat – Copie Courneuve9</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: { preflight: false },
+      important: true,
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            primary: { 50:'#eff6ff', 100:'#dbeafe', 600:'#2563eb', 700:'#1d4ed8', 800:'#1e40af' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    a { text-decoration: none !important; }
+  </style>
 </head>
-<body>
+<body class="bg-white text-gray-900">
 
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="index.html">Copie <span class="brand-accent">Courneuve9</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
-            <span class="navbar-toggler-icon"></span>
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm" style="backdrop-filter:blur(8px)">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="text-xl font-extrabold tracking-tight text-blue-600">
+          Copie <span class="text-amber-500">Courneuve9</span>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="index.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">Accueil</a>
+          <a href="nos_produits.html" class="px-3 py-2 rounded-lg text-sm font-semibold text-blue-600 bg-blue-50">Nos Produits</a>
+          <a href="copie.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">Copie La Courneuve</a>
+          <a href="devis.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">Devis</a>
+          <a href="decouverte.html"   class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">Découverte</a>
+          <a href="admin.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">Admin</a>
+        </div>
+        <button id="menuBtn" type="button" class="md:hidden p-2 rounded-lg text-gray-500 hover:bg-gray-100 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-                <li class="nav-item active"><a class="nav-link" href="nos_produits.html">Nos Produits</a></li>
-                <li class="nav-item"><a class="nav-link" href="copie.html">Copie La Courneuve</a></li>
-                <li class="nav-item"><a class="nav-link" href="devis.html">Devis</a></li>
-                <li class="nav-item"><a class="nav-link" href="decouverte.html">Découverte</a></li>
-                <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
-            </ul>
-        </div>
+      </div>
+      <div id="mobileMenu" class="hidden md:hidden border-t border-gray-100 py-3 flex flex-col gap-1">
+        <a href="index.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Accueil</a>
+        <a href="nos_produits.html" class="px-3 py-2 rounded-lg text-sm font-semibold text-blue-600 bg-blue-50">Nos Produits</a>
+        <a href="copie.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Copie La Courneuve</a>
+        <a href="devis.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Devis</a>
+        <a href="decouverte.html"   class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Découverte</a>
+        <a href="admin.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Admin</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="relative overflow-hidden bg-gradient-to-br from-purple-800 via-purple-600 to-pink-500 py-14 text-center text-white hero-pattern">
+    <div class="relative z-10">
+      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight" data-editable="chemise_rabat_title">Chemise à Rabat</h1>
+      <p class="text-purple-100 mt-2 text-sm md:text-base">Personnalisée à vos couleurs et à votre logo</p>
+    </div>
+  </div>
+
+  <!-- Breadcrumb -->
+  <div class="max-w-6xl mx-auto px-4 py-4">
+    <nav aria-label="Fil d'Ariane" class="text-sm text-gray-500">
+      <a href="index.html" class="hover:text-blue-600 transition-colors">Accueil</a>
+      <span class="mx-2 text-gray-300">/</span>
+      <a href="nos_produits.html" class="hover:text-blue-600 transition-colors">Nos Produits</a>
+      <span class="mx-2 text-gray-300">/</span>
+      <a href="impression.html" class="hover:text-blue-600 transition-colors">Impression</a>
+      <span class="mx-2 text-gray-300">/</span>
+      <span class="text-gray-900 font-semibold">Chemise à Rabat</span>
     </nav>
+  </div>
 
-    <div class="page-header">
-        <h1 data-editable="chemise_rabat_title">Chemise à Rabat</h1>
-        <p>Personnalisée à vos couleurs et à votre logo</p>
-    </div>
-
-    <!-- Breadcrumb -->
-    <div class="container">
-        <nav aria-label="Fil d'Ariane">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
-                <li class="breadcrumb-item"><a href="nos_produits.html">Nos Produits</a></li>
-                <li class="breadcrumb-item"><a href="impression.html">Impression</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Chemise à Rabat</li>
-            </ol>
-        </nav>
-    </div>
-
-    <!-- Détail produit -->
-    <section class="container py-4">
-        <div class="row align-items-center">
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <span class="section-tag">Produit</span>
-                <h2 class="section-title mt-2">Description</h2>
-                <div class="divider" style="margin-left:0"></div>
-                <p data-editable="chemise_rabat_desc" class="text-muted mt-3">
-                    Nos chemises à rabat sont idéales pour organiser et présenter vos documents de façon professionnelle.
-                    Personnalisez-les avec votre logo et vos couleurs d'entreprise.
-                </p>
-                <ul class="list-unstyled mt-3" style="color:#374151;font-size:.93rem">
-                    <li class="mb-2">✅ Carton rigide haute qualité</li>
-                    <li class="mb-2">✅ Personnalisation couleur &amp; logo</li>
-                    <li class="mb-2">✅ Format A4 standard</li>
-                    <li class="mb-2">✅ Pochettes intérieures incluses</li>
-                    <li class="mb-2">✅ Élastique de maintien</li>
-                </ul>
-                <p class="mt-3">
-                    <strong>Prix :</strong>
-                    <span class="price-badge ml-1" data-editable="chemise_rabat_price">À partir de 20 €</span>
-                </p>
-                <div class="mt-4">
-                    <a href="devis.html" class="btn btn-primary px-4 mr-2">Commander</a>
-                    <a href="impression.html" class="btn btn-outline-secondary">← Retour</a>
-                </div>
+  <!-- Product Detail -->
+  <section class="max-w-6xl mx-auto px-4 py-8 pb-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="inline-block bg-purple-50 text-purple-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">Produit</span>
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Description</h2>
+        <div class="w-10 h-1 bg-purple-600 rounded-full mb-5"></div>
+        <p class="text-gray-600 text-sm leading-relaxed mb-5" data-editable="chemise_rabat_desc">
+          Nos chemises à rabat sont idéales pour organiser et présenter vos documents de façon professionnelle.
+          Personnalisez-les avec votre logo et vos couleurs d'entreprise.
+        </p>
+        <div class="space-y-3 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </div>
-            <div class="col-lg-6">
-                <div class="card text-center p-5" style="background:var(--bg)">
-                    <div style="font-size:5rem">📋</div>
-                    <h5 class="mt-3" style="font-weight:700">Chemise à Rabat Premium</h5>
-                    <p class="text-muted" style="font-size:.9rem">Personnalisée à votre image</p>
-                </div>
+            <span class="text-sm text-gray-700">Carton rigide haute qualité</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </div>
+            <span class="text-sm text-gray-700">Personnalisation couleur &amp; logo</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <span class="text-sm text-gray-700">Format A4 standard</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <span class="text-sm text-gray-700">Pochettes intérieures incluses</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <span class="text-sm text-gray-700">Élastique de maintien</span>
+          </div>
         </div>
-    </section>
 
-    <!-- Options -->
-    <section class="py-5" style="background:var(--bg)">
-        <div class="container">
-            <div class="text-center mb-5">
-                <span class="section-tag">Personnalisation</span>
-                <h2 class="section-title mt-2">Options disponibles</h2>
-                <div class="divider"></div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-4 mb-3">
-                    <div class="info-card text-center">
-                        <span class="info-icon">🎨</span>
-                        <h6>Couleur</h6>
-                        <p>Toutes les couleurs selon votre charte graphique.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="info-card text-center">
-                        <span class="info-icon">🏷️</span>
-                        <h6>Logo / Texte</h6>
-                        <p>Logo et informations imprimés en haute qualité.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="info-card text-center">
-                        <span class="info-icon">📦</span>
-                        <h6>Quantité</h6>
-                        <p>Dès 1 pièce. Tarifs dégressifs pour les lots.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="bg-gray-50 rounded-2xl border border-gray-200 p-5 mb-6 inline-block">
+          <div class="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1">Prix</div>
+          <div class="text-3xl font-extrabold text-purple-600" data-editable="chemise_rabat_price">À partir de 20 €</div>
         </div>
-    </section>
 
-    <!-- CTA -->
-    <section class="container py-5 text-center">
-        <h3 style="font-weight:800;margin-bottom:.75rem">Intéressé par ce produit ?</h3>
-        <a href="devis.html" class="btn btn-primary px-5 mr-2">Demander un devis</a>
+        <div class="flex flex-wrap gap-3">
+          <a href="devis.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl transition-colors duration-200">Commander</a>
+          <a href="impression.html" class="inline-block border border-gray-300 text-gray-700 font-semibold px-6 py-3 rounded-xl hover:bg-gray-50 transition-colors duration-200">Retour</a>
+        </div>
+      </div>
+
+      <div class="flex justify-center">
+        <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-12 text-center border border-purple-100 w-full max-w-md">
+          <div class="w-24 h-24 bg-white rounded-3xl shadow-lg flex items-center justify-center mx-auto mb-6">
+            <svg class="w-12 h-12 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <h5 class="text-xl font-extrabold mb-2">Chemise à Rabat Premium</h5>
+          <p class="text-gray-500 text-sm">Personnalisée à votre image</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Options -->
+  <section class="bg-gray-50 py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="inline-block bg-purple-50 text-purple-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">Personnalisation</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Options disponibles</h2>
+        <div class="w-10 h-1 bg-purple-600 rounded-full mx-auto mt-3"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card-hover bg-white rounded-2xl border border-gray-200 p-7 text-center">
+          <div class="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+          </div>
+          <h5 class="text-base font-bold mb-2">Couleur</h5>
+          <p class="text-gray-500 text-sm">Toutes les couleurs selon votre charte graphique.</p>
+        </div>
+        <div class="card-hover bg-white rounded-2xl border border-gray-200 p-7 text-center">
+          <div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
+          </div>
+          <h5 class="text-base font-bold mb-2">Logo / Texte</h5>
+          <p class="text-gray-500 text-sm">Logo et informations imprimés en haute qualité.</p>
+        </div>
+        <div class="card-hover bg-white rounded-2xl border border-gray-200 p-7 text-center">
+          <div class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          </div>
+          <h5 class="text-base font-bold mb-2">Quantité</h5>
+          <p class="text-gray-500 text-sm">Dès 1 pièce. Tarifs dégressifs pour les lots.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-br from-purple-800 via-purple-600 to-pink-500 py-14 text-center text-white">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold mb-3">Intéressé par ce produit ?</h2>
+      <p class="text-purple-100 mb-8 text-sm md:text-base">Commandez vos chemises à rabat personnalisées dès maintenant.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="devis.html" class="inline-block bg-white text-purple-600 font-bold px-7 py-3 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200">
+          Demander un devis
+        </a>
         <a href="https://wa.me/33773006663?text=Bonjour%2C%20je%20voudrais%20commander%20des%20chemises%20%C3%A0%20rabat."
-           class="btn-whatsapp" target="_blank" rel="noopener">💬 WhatsApp</a>
-    </section>
+           target="_blank" rel="noopener"
+           class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-xl transition-colors duration-200">
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <footer class="site-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <span class="footer-brand">Copie Courneuve9</span>
-                    <p style="font-size:.88rem">Votre partenaire photocopie et impression à La Courneuve.</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h6>Navigation</h6>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="nos_produits.html">Nos Produits</a></li>
-                        <li><a href="copie.html">Copie La Courneuve</a></li>
-                        <li><a href="devis.html">Demande de Devis</a></li>
-                        <li><a href="decouverte.html">Découverte</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h6>Contact</h6>
-                    <ul class="footer-links">
-                        <li><a href="mailto:copie93120@gmail.com">copie93120@gmail.com</a></li>
-                        <li><a href="tel:+33773006663">07 73 00 66 63</a></li>
-                        <li><a href="https://wa.me/33773006663" target="_blank" rel="noopener">WhatsApp</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">&copy; 2024–2025 Copie Courneuve9. Tous droits réservés.</div>
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 pt-12 mt-0">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8">
+        <div>
+          <div class="text-white text-xl font-extrabold tracking-tight mb-3">Copie <span class="text-amber-400">Courneuve9</span></div>
+          <p class="text-sm">Votre partenaire photocopie et impression à La Courneuve.</p>
         </div>
-    </footer>
+        <div>
+          <h6 class="text-white text-xs font-bold uppercase tracking-widest mb-4">Navigation</h6>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html"        class="hover:text-white transition-colors">Accueil</a></li>
+            <li><a href="nos_produits.html" class="hover:text-white transition-colors">Nos Produits</a></li>
+            <li><a href="copie.html"        class="hover:text-white transition-colors">Copie La Courneuve</a></li>
+            <li><a href="devis.html"        class="hover:text-white transition-colors">Demande de Devis</a></li>
+            <li><a href="decouverte.html"   class="hover:text-white transition-colors">Découverte</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6 class="text-white text-xs font-bold uppercase tracking-widest mb-4">Contact</h6>
+          <ul class="space-y-2 text-sm">
+            <li><a href="mailto:copie93120@gmail.com" class="hover:text-white transition-colors">copie93120@gmail.com</a></li>
+            <li><a href="tel:+33773006663"            class="hover:text-white transition-colors">07 73 00 66 63</a></li>
+            <li><a href="https://wa.me/33773006663" target="_blank" rel="noopener" class="hover:text-white transition-colors">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 py-5 text-center text-xs text-gray-600">&copy; 2024–2025 Copie Courneuve9. Tous droits réservés.</div>
+    </div>
+  </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="admin.js"></script>
-    <script src="chatbot.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    document.getElementById('menuBtn').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+  </script>
+  <script src="admin.js"></script>
+  <script src="chatbot.js"></script>
 </body>
 </html>

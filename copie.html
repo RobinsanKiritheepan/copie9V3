@@ -1,182 +1,258 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Service de photocopie à La Courneuve – qualité laser, tarifs abordables. Impression couleur, N&B, numérisation.">
-    <title>Copie La Courneuve – Copie Courneuve9</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Service de photocopie à La Courneuve – copies noir et blanc, couleur et numérisation. Qualité laser, tarifs abordables. Copie Courneuve9.">
+  <title>Copie La Courneuve – Copie Courneuve9</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: { preflight: false },
+      important: true,
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            primary: { 50:'#eff6ff', 100:'#dbeafe', 600:'#2563eb', 700:'#1d4ed8', 800:'#1e40af' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    a { text-decoration: none !important; }
+  </style>
 </head>
-<body>
+<body class="bg-white text-gray-900">
 
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="index.html">Copie <span class="brand-accent">Courneuve9</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-                <li class="nav-item"><a class="nav-link" href="nos_produits.html">Nos Produits</a></li>
-                <li class="nav-item active"><a class="nav-link" href="copie.html">Copie La Courneuve</a></li>
-                <li class="nav-item"><a class="nav-link" href="devis.html">Devis</a></li>
-                <li class="nav-item"><a class="nav-link" href="decouverte.html">Découverte</a></li>
-                <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
-            </ul>
+  <!-- ── Navbar ── -->
+  <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm" style="backdrop-filter:blur(8px)">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="text-xl font-extrabold tracking-tight text-blue-600">
+          Copie <span class="text-amber-500">Courneuve9</span>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="index.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">Accueil</a>
+          <a href="nos_produits.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">Nos Produits</a>
+          <a href="copie.html"        class="px-3 py-2 rounded-lg text-sm font-semibold text-blue-600 bg-blue-50">Copie La Courneuve</a>
+          <a href="devis.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">Devis</a>
+          <a href="decouverte.html"   class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">Découverte</a>
+          <a href="admin.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">Admin</a>
         </div>
-    </nav>
+        <button id="menuBtn" type="button" class="md:hidden p-2 rounded-lg text-gray-500 hover:bg-gray-100 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+      <div id="mobileMenu" class="hidden md:hidden border-t border-gray-100 py-3 flex flex-col gap-1">
+        <a href="index.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Accueil</a>
+        <a href="nos_produits.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Nos Produits</a>
+        <a href="copie.html"        class="px-3 py-2 rounded-lg text-sm font-semibold text-blue-600 bg-blue-50">Copie La Courneuve</a>
+        <a href="devis.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Devis</a>
+        <a href="decouverte.html"   class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Découverte</a>
+        <a href="admin.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Admin</a>
+      </div>
+    </div>
+  </nav>
 
-    <div class="page-header">
-        <h1>Copie La Courneuve</h1>
-        <p>Votre centre de photocopie et d'impression de confiance</p>
+  <!-- ── Page Header ── -->
+  <div class="relative overflow-hidden bg-gradient-to-br from-blue-800 via-blue-600 to-sky-500 py-14 text-center text-white hero-pattern">
+    <div class="relative z-10">
+      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">Copie La Courneuve</h1>
+      <p class="text-blue-100 mt-2 text-sm md:text-base">Votre centre de photocopie de confiance</p>
+    </div>
+  </div>
+
+  <!-- ── Description + Image ── -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="inline-block bg-blue-50 text-blue-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">À propos</span>
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight mb-4" data-editable="copie_section_title">Notre service de photocopie</h2>
+        <div class="w-10 h-1 bg-blue-600 rounded-full mb-5"></div>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4" data-editable="copie_content">
+          Bienvenue dans notre centre de photocopie à La Courneuve. Nous proposons une large gamme de services pour les particuliers et les professionnels. Notre matériel de pointe garantit des résultats nets et fidèles à chaque commande.
+        </p>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4" data-editable="copie_content2">
+          Petite ou grande quantité, nous traitons toutes les commandes avec rapidité et soin. Apportez votre clé USB, envoyez votre fichier par email ou passez directement en boutique – la copie est prête en quelques minutes.
+        </p>
+        <p class="text-gray-600 text-sm leading-relaxed mb-6" data-editable="copie_content3">
+          Formats disponibles : A4, A3, recto verso, agrafage et reliure sur demande. Des tarifs dégressifs sont disponibles pour les grandes quantités professionnelles.
+        </p>
+        <a href="devis.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl transition-colors duration-200">
+          Demander un devis gratuit
+        </a>
+      </div>
+      <div class="flex justify-center">
+        <img src="service1.png" alt="Service de photocopie à La Courneuve" class="rounded-2xl shadow-lg w-full max-w-md object-cover" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Price Grid ── -->
+  <section class="bg-gray-50 py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="inline-block bg-blue-50 text-blue-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">Tarifs</span>
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">Nos prix</h2>
+        <div class="w-10 h-1 bg-blue-600 rounded-full mx-auto mt-3 mb-3"></div>
+        <p class="text-gray-500 text-sm max-w-md mx-auto">Tarifs dégressifs disponibles pour les grandes quantités. Contactez-nous pour un devis personnalisé.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Photocopie N&B -->
+        <div class="card-hover bg-white rounded-2xl border border-gray-200 p-7 text-center">
+          <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">📄</div>
+          <h3 class="text-lg font-bold mb-2">Photocopie N&amp;B</h3>
+          <div class="text-3xl font-extrabold text-blue-600 mb-1">0,10 €</div>
+          <div class="text-xs text-gray-400 mb-4">par page A4</div>
+          <p class="text-gray-500 text-sm mb-5">Impression laser noire et blanche, haute précision, rendu professionnel garanti.</p>
+          <a href="devis.html" class="inline-block bg-amber-50 text-amber-700 border border-amber-200 text-xs font-bold px-3 py-1 rounded-full hover:bg-amber-100 transition-colors">Commander →</a>
+        </div>
+
+        <!-- Impression Couleur -->
+        <div class="card-hover bg-white rounded-2xl border border-gray-200 p-7 text-center ring-2 ring-blue-600">
+          <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">🎨</div>
+          <h3 class="text-lg font-bold mb-2">Impression Couleur</h3>
+          <div class="text-3xl font-extrabold text-blue-600 mb-1">0,20 €</div>
+          <div class="text-xs text-gray-400 mb-4">par page A4</div>
+          <p class="text-gray-500 text-sm mb-5">Couleurs vives et fidèles, idéales pour présentations, affiches et documents visuels.</p>
+          <a href="devis.html" class="inline-block bg-amber-50 text-amber-700 border border-amber-200 text-xs font-bold px-3 py-1 rounded-full hover:bg-amber-100 transition-colors">Commander →</a>
+        </div>
+
+        <!-- Numérisation -->
+        <div class="card-hover bg-white rounded-2xl border border-gray-200 p-7 text-center">
+          <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">📲</div>
+          <h3 class="text-lg font-bold mb-2">Numérisation</h3>
+          <div class="text-3xl font-extrabold text-blue-600 mb-1">0,15 €</div>
+          <div class="text-xs text-gray-400 mb-4">par page</div>
+          <p class="text-gray-500 text-sm mb-5">Vos documents numérisés en haute résolution et envoyés directement par email (PDF ou JPEG).</p>
+          <a href="devis.html" class="inline-block bg-amber-50 text-amber-700 border border-amber-200 text-xs font-bold px-3 py-1 rounded-full hover:bg-amber-100 transition-colors">Commander →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Practical Info ── -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="text-center mb-12">
+      <span class="inline-block bg-blue-50 text-blue-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">Pratique</span>
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">Informations utiles</h2>
+      <div class="w-10 h-1 bg-blue-600 rounded-full mx-auto mt-3"></div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+
+      <!-- Horaires -->
+      <div class="bg-gray-50 rounded-2xl border border-gray-200 p-5">
+        <div class="text-2xl mb-3">🕐</div>
+        <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Horaires</div>
+        <p class="text-sm text-gray-700 font-medium">Lun – Ven<br>9h00 – 18h00</p>
+        <p class="text-sm text-gray-700 mt-1">Samedi<br>10h00 – 14h00</p>
+      </div>
+
+      <!-- Contact -->
+      <div class="bg-gray-50 rounded-2xl border border-gray-200 p-5">
+        <div class="text-2xl mb-3">📞</div>
+        <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Contact</div>
+        <a href="tel:+33773006663" class="block text-blue-600 font-semibold text-sm mb-1 hover:text-blue-700">07 73 00 66 63</a>
+        <a href="mailto:copie93120@gmail.com" class="block text-blue-600 font-semibold text-sm hover:text-blue-700">copie93120@gmail.com</a>
+      </div>
+
+      <!-- Formats -->
+      <div class="bg-gray-50 rounded-2xl border border-gray-200 p-5">
+        <div class="text-2xl mb-3">📐</div>
+        <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Formats acceptés</div>
+        <p class="text-sm text-gray-700">A4, A3<br>Recto verso<br>PDF, Word, JPG, PNG<br>Clé USB, email</p>
+      </div>
+
+      <!-- Délai -->
+      <div class="bg-gray-50 rounded-2xl border border-gray-200 p-5">
+        <div class="text-2xl mb-3">⚡</div>
+        <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Délai</div>
+        <p class="text-sm text-gray-700">La plupart des commandes prêtes en moins d'1h.</p>
+        <p class="text-sm text-gray-700 mt-1">Service express disponible sur demande.</p>
+      </div>
+
     </div>
 
-    <!-- Présentation -->
-    <section class="container py-5">
-        <div class="row align-items-center">
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <span class="section-tag">À propos</span>
-                <h2 class="section-title mt-2">Notre service de photocopie</h2>
-                <div class="divider" style="margin-left:0"></div>
-                <p data-editable="copie_content" class="text-muted">
-                    Bienvenue dans notre centre de photocopie à La Courneuve. Nous proposons une large gamme
-                    de services pour les particuliers et les professionnels. Notre matériel de pointe garantit
-                    des résultats nets et fidèles à chaque commande.
-                </p>
-                <p data-editable="copie_content2" class="text-muted">
-                    Petite ou grande quantité, nous traitons toutes les commandes avec rapidité et soin.
-                </p>
-                <a href="devis.html" class="btn btn-primary px-4 mt-2">Demander un devis gratuit</a>
-            </div>
-            <div class="col-lg-6">
-                <img src="service1.png" class="img-fluid rounded" style="border-radius:var(--radius-lg)!important;box-shadow:var(--shadow-md)"
-                     alt="Service de photocopie" loading="lazy">
-            </div>
-        </div>
-    </section>
+    <!-- WhatsApp CTA inline -->
+    <div class="text-center mt-10">
+      <a href="https://wa.me/33773006663?text=Bonjour%2C%20je%20voudrais%20un%20renseignement%20sur%20vos%20services%20de%20photocopie."
+         target="_blank" rel="noopener"
+         class="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-xl transition-colors duration-200 inline-flex w-fit mx-auto">
+        💬 Contacter sur WhatsApp
+      </a>
+    </div>
+  </section>
 
-    <!-- Tarifs -->
-    <section class="py-5" style="background:var(--bg)">
-        <div class="container">
-            <div class="text-center mb-5">
-                <span class="section-tag">Tarifs</span>
-                <h2 class="section-title mt-2">Nos prix</h2>
-                <div class="divider"></div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-sm-6 col-md-4 mb-4">
-                    <div class="card h-100 text-center p-4">
-                        <div class="card-icon-wrap">📄</div>
-                        <h5 class="card-title">Photocopie N&amp;B</h5>
-                        <div class="price-badge mb-3">0,10 € / page</div>
-                        <p class="card-text">Format A4, laser, qualité garantie.</p>
-                        <a href="devis.html" class="btn btn-primary btn-sm mt-2">Commander</a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 mb-4">
-                    <div class="card h-100 text-center p-4">
-                        <div class="card-icon-wrap">🎨</div>
-                        <h5 class="card-title">Impression Couleur</h5>
-                        <div class="price-badge mb-3">0,20 € / page</div>
-                        <p class="card-text">Rendu fidèle pour documents pro.</p>
-                        <a href="devis.html" class="btn btn-primary btn-sm mt-2">Commander</a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 mb-4">
-                    <div class="card h-100 text-center p-4">
-                        <div class="card-icon-wrap">📲</div>
-                        <h5 class="card-title">Numérisation</h5>
-                        <div class="price-badge mb-3">0,15 € / page</div>
-                        <p class="card-text">Haute résolution, envoi par email.</p>
-                        <a href="devis.html" class="btn btn-primary btn-sm mt-2">Commander</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- ── CTA Banner ── -->
+  <section class="bg-gradient-to-br from-blue-800 via-blue-600 to-sky-500 py-14 text-center text-white">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold mb-3">Prêt à passer votre commande ?</h2>
+      <p class="text-blue-100 mb-8 text-sm md:text-base">Contactez-nous pour une réponse immédiate ou passez directement en boutique à La Courneuve.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://wa.me/33773006663?text=Bonjour%2C%20je%20voudrais%20passer%20une%20commande%20de%20photocopie."
+           target="_blank" rel="noopener"
+           class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-xl transition-colors duration-200">
+          💬 Écrire sur WhatsApp
+        </a>
+        <a href="devis.html"
+           class="inline-block border-2 border-white/70 text-white font-semibold px-6 py-3 rounded-xl hover:bg-white/10 transition-colors duration-200">
+          Demander un devis
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <!-- Infos pratiques -->
-    <section class="container py-5">
-        <div class="text-center mb-5">
-            <span class="section-tag">Pratique</span>
-            <h2 class="section-title mt-2">Informations utiles</h2>
-            <div class="divider"></div>
+  <!-- ── Footer ── -->
+  <footer class="bg-gray-900 text-gray-400 pt-12 mt-0">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8">
+        <div>
+          <div class="text-white text-xl font-extrabold tracking-tight mb-3">Copie <span class="text-amber-400">Courneuve9</span></div>
+          <p class="text-sm">Votre partenaire photocopie et impression à La Courneuve.</p>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <div class="info-card">
-                    <span class="info-icon">🕐</span>
-                    <h6>Horaires</h6>
-                    <p>Lun – Ven : 9h – 18h&nbsp;&nbsp;|&nbsp;&nbsp;Sam : 10h – 14h</p>
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-                <div class="info-card">
-                    <span class="info-icon">📞</span>
-                    <h6>Téléphone / Email</h6>
-                    <p>
-                        <a href="tel:+33773006663">07 73 00 66 63</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a href="mailto:copie93120@gmail.com">copie93120@gmail.com</a>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-                <div class="info-card">
-                    <span class="info-icon">✅</span>
-                    <h6>Formats acceptés</h6>
-                    <p>PDF, Word, Excel, JPG, PNG, clé USB, email.</p>
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-                <div class="info-card">
-                    <span class="info-icon">⚡</span>
-                    <h6>Délai</h6>
-                    <p>La plupart des commandes prêtes en moins d'1h. Express disponible.</p>
-                </div>
-            </div>
+        <div>
+          <h6 class="text-white text-xs font-bold uppercase tracking-widest mb-4">Navigation</h6>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html"        class="hover:text-white transition-colors">Accueil</a></li>
+            <li><a href="nos_produits.html" class="hover:text-white transition-colors">Nos Produits</a></li>
+            <li><a href="copie.html"        class="hover:text-white transition-colors">Copie La Courneuve</a></li>
+            <li><a href="devis.html"        class="hover:text-white transition-colors">Demande de Devis</a></li>
+            <li><a href="decouverte.html"   class="hover:text-white transition-colors">Découverte</a></li>
+          </ul>
         </div>
-        <div class="text-center mt-4">
-            <a href="https://wa.me/33773006663?text=Bonjour%2C%20je%20voudrais%20un%20renseignement."
-               class="btn-whatsapp" target="_blank" rel="noopener">💬 Contacter sur WhatsApp</a>
+        <div>
+          <h6 class="text-white text-xs font-bold uppercase tracking-widest mb-4">Contact</h6>
+          <ul class="space-y-2 text-sm">
+            <li><a href="mailto:copie93120@gmail.com" class="hover:text-white transition-colors">copie93120@gmail.com</a></li>
+            <li><a href="tel:+33773006663"            class="hover:text-white transition-colors">07 73 00 66 63</a></li>
+            <li><a href="https://wa.me/33773006663" target="_blank" rel="noopener" class="hover:text-white transition-colors">WhatsApp</a></li>
+          </ul>
         </div>
-    </section>
+      </div>
+      <div class="border-t border-gray-800 py-5 text-center text-xs text-gray-600">&copy; 2024–2025 Copie Courneuve9. Tous droits réservés.</div>
+    </div>
+  </footer>
 
-    <footer class="site-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <span class="footer-brand">Copie Courneuve9</span>
-                    <p style="font-size:.88rem">Votre partenaire photocopie et impression à La Courneuve.</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h6>Navigation</h6>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="nos_produits.html">Nos Produits</a></li>
-                        <li><a href="copie.html">Copie La Courneuve</a></li>
-                        <li><a href="devis.html">Demande de Devis</a></li>
-                        <li><a href="decouverte.html">Découverte</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h6>Contact</h6>
-                    <ul class="footer-links">
-                        <li><a href="mailto:copie93120@gmail.com">copie93120@gmail.com</a></li>
-                        <li><a href="tel:+33773006663">07 73 00 66 63</a></li>
-                        <li><a href="https://wa.me/33773006663" target="_blank" rel="noopener">WhatsApp</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">&copy; 2024–2025 Copie Courneuve9. Tous droits réservés.</div>
-        </div>
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="admin.js"></script>
-    <script src="chatbot.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    document.getElementById('menuBtn').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+  </script>
+  <script src="admin.js"></script>
+  <script src="chatbot.js"></script>
 </body>
 </html>

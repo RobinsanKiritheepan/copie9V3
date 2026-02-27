@@ -1,162 +1,464 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez nos services en mode fil d'actualité. Likez vos favoris – Copie Courneuve9.">
-    <title>Découverte – Copie Courneuve9</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Découvrez nos services en mode vitrine interactive. Explorez, comparez et likez vos favoris – Copie Courneuve9.">
+  <title>Découverte – Copie Courneuve9</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: { preflight: false },
+      important: true,
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            primary: { 50:'#eff6ff', 100:'#dbeafe', 600:'#2563eb', 700:'#1d4ed8', 800:'#1e40af' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    a { text-decoration: none !important; }
+    .tab-active { color: #2563eb !important; border-bottom: 3px solid #2563eb; }
+    .showcase-card { transition: all .3s cubic-bezier(.4,0,.2,1); }
+    .showcase-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,.12); }
+    .like-anim { animation: likeScale .35s ease; }
+    @keyframes likeScale { 0%{transform:scale(1)} 50%{transform:scale(1.4)} 100%{transform:scale(1)} }
+    .pulse-dot { animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:1} }
+    .fade-in { animation: fadeIn .5s ease forwards; opacity:0; }
+    @keyframes fadeIn { to{opacity:1} }
+    .stats-counter { transition: all .6s ease; }
+  </style>
 </head>
-<body>
+<body class="bg-white text-gray-900">
 
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="index.html">Copie <span class="brand-accent">Courneuve9</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
-            <span class="navbar-toggler-icon"></span>
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm" style="backdrop-filter:blur(8px)">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="text-xl font-extrabold tracking-tight text-blue-600">
+          Copie <span class="text-amber-500">Courneuve9</span>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="index.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">Accueil</a>
+          <a href="nos_produits.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">Nos Produits</a>
+          <a href="copie.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">Copie La Courneuve</a>
+          <a href="devis.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">Devis</a>
+          <a href="decouverte.html"   class="px-3 py-2 rounded-lg text-sm font-semibold text-blue-600 bg-blue-50">Découverte</a>
+          <a href="admin.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">Admin</a>
+        </div>
+        <button id="menuBtn" type="button" class="md:hidden p-2 rounded-lg text-gray-500 hover:bg-gray-100 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-                <li class="nav-item"><a class="nav-link" href="nos_produits.html">Nos Produits</a></li>
-                <li class="nav-item"><a class="nav-link" href="copie.html">Copie La Courneuve</a></li>
-                <li class="nav-item"><a class="nav-link" href="devis.html">Devis</a></li>
-                <li class="nav-item active"><a class="nav-link" href="decouverte.html">Découverte <span class="sr-only">(actuel)</span></a></li>
-                <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
-            </ul>
-        </div>
-    </nav>
+      </div>
+      <div id="mobileMenu" class="hidden md:hidden border-t border-gray-100 py-3 flex flex-col gap-1">
+        <a href="index.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Accueil</a>
+        <a href="nos_produits.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Nos Produits</a>
+        <a href="copie.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Copie La Courneuve</a>
+        <a href="devis.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Devis</a>
+        <a href="decouverte.html"   class="px-3 py-2 rounded-lg text-sm font-semibold text-blue-600 bg-blue-50">Découverte</a>
+        <a href="admin.html"        class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Admin</a>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Image d'en-tête -->
-    <div class="header-image">
-        <div class="text-center text-white">
-            <h1 class="display-4" style="font-weight:800">Découverte</h1>
-            <p class="lead mb-0">Découvrez nos services comme sur les réseaux sociaux</p>
+  <!-- Hero -->
+  <header class="relative overflow-hidden bg-gradient-to-br from-indigo-900 via-blue-700 to-cyan-500 hero-pattern">
+    <div class="relative z-10 max-w-3xl mx-auto px-4 py-20 text-center text-white">
+      <span class="inline-block bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full mb-5 uppercase tracking-widest">
+        <span class="inline-block w-2 h-2 bg-green-400 rounded-full mr-1.5 pulse-dot"></span> Vitrine Interactive
+      </span>
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-4">
+        Découvrez nos services
+      </h1>
+      <p class="text-lg text-blue-100 max-w-xl mx-auto mb-8">
+        Explorez notre catalogue, comparez les prestations et ajoutez vos favoris en un clic.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="#showcase" class="inline-block bg-white text-blue-600 font-bold px-7 py-3 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200">
+          Explorer maintenant
+        </a>
+        <a href="devis.html" class="inline-block border-2 border-white/70 text-white font-semibold px-7 py-3 rounded-full hover:bg-white/10 transition-colors duration-200">
+          Demander un devis
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Live Stats Bar -->
+  <div class="bg-gray-900 py-4">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div>
+          <div class="text-2xl font-extrabold text-amber-400 stats-counter" id="statServices">4</div>
+          <div class="text-xs text-gray-400 mt-0.5">Services disponibles</div>
         </div>
+        <div>
+          <div class="text-2xl font-extrabold text-amber-400 stats-counter" id="statLikes">0</div>
+          <div class="text-xs text-gray-400 mt-0.5">Likes au total</div>
+        </div>
+        <div>
+          <div class="text-2xl font-extrabold text-amber-400">Express</div>
+          <div class="text-xs text-gray-400 mt-0.5">Délai rapide</div>
+        </div>
+        <div>
+          <div class="text-2xl font-extrabold text-amber-400">Pro</div>
+          <div class="text-xs text-gray-400 mt-0.5">Qualité garantie</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter Tabs -->
+  <section id="showcase" class="max-w-6xl mx-auto px-4 pt-12 pb-4">
+    <div class="text-center mb-8">
+      <span class="inline-block bg-blue-50 text-blue-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">Catalogue</span>
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Notre vitrine</h2>
+      <div class="w-10 h-1 bg-blue-600 rounded-full mx-auto mt-3 mb-4"></div>
+      <p class="text-gray-500 max-w-md mx-auto text-sm">Filtrez par catégorie, triez par popularité et découvrez tous nos services.</p>
     </div>
 
-    <!-- Reels -->
-    <section class="container-fluid p-0">
-        <div id="reelContainer"></div>
-    </section>
+    <!-- Tabs -->
+    <div class="flex flex-wrap justify-center gap-2 mb-4">
+      <button type="button" class="filter-tab px-4 py-2 rounded-full text-sm font-semibold border border-gray-200 bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-all tab-active" data-filter="all">Tous</button>
+      <button type="button" class="filter-tab px-4 py-2 rounded-full text-sm font-semibold border border-gray-200 bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-all" data-filter="copie">Copie</button>
+      <button type="button" class="filter-tab px-4 py-2 rounded-full text-sm font-semibold border border-gray-200 bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-all" data-filter="impression">Impression</button>
+      <button type="button" class="filter-tab px-4 py-2 rounded-full text-sm font-semibold border border-gray-200 bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-all" data-filter="numerisation">Numérisation</button>
+      <button type="button" class="filter-tab px-4 py-2 rounded-full text-sm font-semibold border border-gray-200 bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-all" data-filter="produit">Produits</button>
+    </div>
 
-    <footer class="site-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <span class="footer-brand">Copie Courneuve9</span>
-                    <p style="font-size:.88rem">Votre partenaire photocopie et impression à La Courneuve.</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h6>Navigation</h6>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="nos_produits.html">Nos Produits</a></li>
-                        <li><a href="copie.html">Copie La Courneuve</a></li>
-                        <li><a href="devis.html">Demande de Devis</a></li>
-                        <li><a href="decouverte.html">Découverte</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h6>Contact</h6>
-                    <ul class="footer-links">
-                        <li><a href="mailto:copie93120@gmail.com">copie93120@gmail.com</a></li>
-                        <li><a href="tel:+33773006663">07 73 00 66 63</a></li>
-                        <li><a href="https://wa.me/33773006663" target="_blank" rel="noopener">WhatsApp</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">&copy; 2024–2025 Copie Courneuve9. Tous droits réservés.</div>
+    <!-- Sort -->
+    <div class="flex justify-between items-center mb-6">
+      <span class="text-xs text-gray-400" id="resultCount">4 services</span>
+      <div class="flex items-center gap-2">
+        <label class="text-xs text-gray-500 font-medium">Trier par</label>
+        <select id="sortSelect" class="text-xs border border-gray-200 rounded-lg px-3 py-1.5 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="popular">Popularité</option>
+          <option value="price-asc">Prix croissant</option>
+          <option value="price-desc">Prix décroissant</option>
+          <option value="name">Nom A-Z</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase Grid -->
+  <section class="max-w-6xl mx-auto px-4 pb-16">
+    <div id="showcaseGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+      <!-- Cards rendered by JS -->
+    </div>
+  </section>
+
+  <!-- Comparison Section -->
+  <section class="bg-gray-50 py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <span class="inline-block bg-blue-50 text-blue-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">Comparatif</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Comparez nos offres</h2>
+        <div class="w-10 h-1 bg-blue-600 rounded-full mx-auto mt-3"></div>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full bg-white rounded-2xl border border-gray-200 overflow-hidden text-sm">
+          <thead>
+            <tr class="bg-gray-900 text-white">
+              <th class="py-4 px-6 text-left font-bold">Service</th>
+              <th class="py-4 px-6 text-center font-bold">Prix unitaire</th>
+              <th class="py-4 px-6 text-center font-bold">Délai</th>
+              <th class="py-4 px-6 text-center font-bold">Format</th>
+              <th class="py-4 px-6 text-center font-bold">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t border-gray-100 hover:bg-blue-50/50 transition-colors">
+              <td class="py-4 px-6 font-semibold">Photocopie N&amp;B</td>
+              <td class="py-4 px-6 text-center"><span class="inline-block bg-green-50 text-green-700 font-bold px-3 py-1 rounded-full text-xs">0,10 €</span></td>
+              <td class="py-4 px-6 text-center text-gray-500">Immédiat</td>
+              <td class="py-4 px-6 text-center text-gray-500">A4, A3</td>
+              <td class="py-4 px-6 text-center"><a href="copie.html" class="text-blue-600 font-semibold text-xs hover:underline">Voir</a></td>
+            </tr>
+            <tr class="border-t border-gray-100 hover:bg-blue-50/50 transition-colors">
+              <td class="py-4 px-6 font-semibold">Impression Couleur</td>
+              <td class="py-4 px-6 text-center"><span class="inline-block bg-green-50 text-green-700 font-bold px-3 py-1 rounded-full text-xs">0,20 €</span></td>
+              <td class="py-4 px-6 text-center text-gray-500">Immédiat</td>
+              <td class="py-4 px-6 text-center text-gray-500">A4, A3</td>
+              <td class="py-4 px-6 text-center"><a href="impression.html" class="text-blue-600 font-semibold text-xs hover:underline">Voir</a></td>
+            </tr>
+            <tr class="border-t border-gray-100 hover:bg-blue-50/50 transition-colors">
+              <td class="py-4 px-6 font-semibold">Numérisation</td>
+              <td class="py-4 px-6 text-center"><span class="inline-block bg-green-50 text-green-700 font-bold px-3 py-1 rounded-full text-xs">0,15 €</span></td>
+              <td class="py-4 px-6 text-center text-gray-500">&lt; 1h</td>
+              <td class="py-4 px-6 text-center text-gray-500">PDF, JPG</td>
+              <td class="py-4 px-6 text-center"><a href="devis.html" class="text-blue-600 font-semibold text-xs hover:underline">Devis</a></td>
+            </tr>
+            <tr class="border-t border-gray-100 hover:bg-blue-50/50 transition-colors">
+              <td class="py-4 px-6 font-semibold">Chemise à Rabat</td>
+              <td class="py-4 px-6 text-center"><span class="inline-block bg-amber-50 text-amber-700 font-bold px-3 py-1 rounded-full text-xs">dès 20 €</span></td>
+              <td class="py-4 px-6 text-center text-gray-500">2-3 jours</td>
+              <td class="py-4 px-6 text-center text-gray-500">A4</td>
+              <td class="py-4 px-6 text-center"><a href="impression_chemise_rabat.html" class="text-blue-600 font-semibold text-xs hover:underline">Voir</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-br from-blue-800 via-blue-600 to-sky-500 py-14 text-center text-white">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold mb-3">Vous avez trouvé ce qu'il vous faut ?</h2>
+      <p class="text-blue-100 mb-8 text-sm md:text-base">Contactez-nous pour une réponse immédiate ou passez en boutique.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://wa.me/33773006663?text=Bonjour%2C%20je%20voudrais%20un%20renseignement."
+           target="_blank" rel="noopener"
+           class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-xl transition-colors duration-200">
+          WhatsApp
+        </a>
+        <a href="devis.html"
+           class="inline-block border-2 border-white/70 text-white font-semibold px-6 py-3 rounded-xl hover:bg-white/10 transition-colors duration-200">
+          Demander un devis
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 pt-12 mt-0">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8">
+        <div>
+          <div class="text-white text-xl font-extrabold tracking-tight mb-3">
+            Copie <span class="text-amber-400">Courneuve9</span>
+          </div>
+          <p class="text-sm leading-relaxed">Votre partenaire photocopie et impression à La Courneuve.</p>
         </div>
-    </footer>
+        <div>
+          <h6 class="text-white text-xs font-bold uppercase tracking-widest mb-4">Navigation</h6>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html"        class="hover:text-white transition-colors">Accueil</a></li>
+            <li><a href="nos_produits.html" class="hover:text-white transition-colors">Nos Produits</a></li>
+            <li><a href="copie.html"        class="hover:text-white transition-colors">Copie La Courneuve</a></li>
+            <li><a href="devis.html"        class="hover:text-white transition-colors">Demande de Devis</a></li>
+            <li><a href="decouverte.html"   class="hover:text-white transition-colors">Découverte</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6 class="text-white text-xs font-bold uppercase tracking-widest mb-4">Contact</h6>
+          <ul class="space-y-2 text-sm">
+            <li><a href="mailto:copie93120@gmail.com" class="hover:text-white transition-colors">copie93120@gmail.com</a></li>
+            <li><a href="tel:+33773006663"            class="hover:text-white transition-colors">07 73 00 66 63</a></li>
+            <li><a href="https://wa.me/33773006663" target="_blank" rel="noopener" class="hover:text-white transition-colors">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 py-5 text-center text-xs text-gray-600">
+        &copy; 2024–2025 Copie Courneuve9. Tous droits réservés.
+      </div>
+    </div>
+  </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="admin.js"></script>
-    <script src="chatbot.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="admin.js"></script>
+  <script src="chatbot.js"></script>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var container = document.getElementById('reelContainer');
-        var likeStore = {};
-        try { likeStore = JSON.parse(localStorage.getItem('reelLikes') || '{}'); } catch(e) {}
-
-        var items = [
-            { id:'photocopie',    title:'Photocopie Rapide',    desc:'Photocopies haute qualité pour tous vos documents.', price:'0,10 € / page', image:'service1.png', link:'index.html' },
-            { id:'impression',    title:'Impression Premium',   desc:'Couleur et N&B, papier haute qualité.',              price:'0,20 € / page', image:'service2.png', link:'impression.html' },
-            { id:'numerisation',  title:'Numérisation Express', desc:'Documents numérisés et envoyés par email rapidement.', price:'0,15 € / page', image:'service3.png', link:'nos_produits.html' },
-            { id:'chemise_rabat', title:'Chemise à Rabat',      desc:'Chemises personnalisées pour vos documents.',        price:'20 €',          image:'photo1.png',   link:'impression_chemise_rabat.html' }
-        ];
-
-        items.forEach(function(item) { if (!(item.id in likeStore)) likeStore[item.id] = 0; });
-
-        function renderItems() {
-            container.innerHTML = '';
-            var sorted = items.slice().sort(function(a, b) { return (likeStore[b.id]||0) - (likeStore[a.id]||0); });
-            sorted.forEach(function(item) {
-                var div = document.createElement('div');
-                div.className = 'reel-item';
-                div.style.backgroundImage = 'url(' + encodeURI(item.image) + ')';
-
-                var overlay = document.createElement('div');
-                overlay.className = 'reel-overlay';
-
-                var h3 = document.createElement('h3');
-                h3.textContent = item.title;
-
-                var pDesc = document.createElement('p');
-                pDesc.textContent = item.desc;
-
-                var pPrice = document.createElement('p');
-                var strong = document.createElement('strong');
-                strong.textContent = 'Prix : ';
-                pPrice.appendChild(strong);
-                pPrice.appendChild(document.createTextNode(item.price));
-
-                var actions = document.createElement('div');
-                actions.className = 'reel-actions';
-
-                var likeBtn = document.createElement('button');
-                likeBtn.type = 'button';
-                likeBtn.className = 'like-btn';
-                likeBtn.setAttribute('aria-label', 'J\'aime ' + item.title);
-                likeBtn.textContent = '❤️';
-                likeBtn.dataset.id = item.id;
-
-                var likeCount = document.createElement('span');
-                likeCount.className = 'like-count';
-                likeCount.textContent = likeStore[item.id] || 0;
-
-                var link = document.createElement('a');
-                link.href = item.link;
-                link.className = 'btn btn-sm';
-                link.style.cssText = 'background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.5);border-radius:50px;padding:.3rem 1rem;font-weight:600;text-decoration:none;margin-left:auto;';
-                link.textContent = 'Voir plus →';
-
-                actions.appendChild(likeBtn);
-                actions.appendChild(likeCount);
-                actions.appendChild(link);
-                overlay.appendChild(h3);
-                overlay.appendChild(pDesc);
-                overlay.appendChild(pPrice);
-                overlay.appendChild(actions);
-                div.appendChild(overlay);
-                container.appendChild(div);
-
-                likeBtn.addEventListener('click', function() {
-                    var id = this.dataset.id;
-                    likeStore[id] = (likeStore[id] || 0) + 1;
-                    try { localStorage.setItem('reelLikes', JSON.stringify(likeStore)); } catch(e) {}
-                    renderItems();
-                });
-            });
-        }
-
-        try { localStorage.setItem('reelLikes', JSON.stringify(likeStore)); } catch(e) {}
-        renderItems();
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu
+    document.getElementById('menuBtn').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
     });
-    </script>
+
+    var likeStore = {};
+    try { likeStore = JSON.parse(localStorage.getItem('reelLikes') || '{}'); } catch(e) {}
+
+    var items = [
+      {
+        id: 'photocopie',
+        title: 'Photocopie Rapide',
+        desc: 'Photocopies noir & blanc et couleur en qualité laser. Résultats nets, rapides et professionnels pour tous vos documents.',
+        price: '0,10 € / page',
+        priceNum: 0.10,
+        image: 'service1.png',
+        link: 'copie.html',
+        category: 'copie',
+        badge: 'Populaire',
+        badgeColor: 'bg-blue-600',
+        features: ['Qualité laser', 'A4 & A3', 'Recto-verso']
+      },
+      {
+        id: 'impression',
+        title: 'Impression Premium',
+        desc: 'Impression numérique et offset haute qualité. Couleurs vives et fidèles pour présentations, affiches et documents visuels.',
+        price: '0,20 € / page',
+        priceNum: 0.20,
+        image: 'service2.png',
+        link: 'impression.html',
+        category: 'impression',
+        badge: 'Pro',
+        badgeColor: 'bg-amber-500',
+        features: ['Couleur HD', 'Offset', 'Grand format']
+      },
+      {
+        id: 'numerisation',
+        title: 'Numérisation Express',
+        desc: 'Documents numérisés en haute résolution et envoyés par email en quelques minutes. Formats PDF et JPEG disponibles.',
+        price: '0,15 € / page',
+        priceNum: 0.15,
+        image: 'service3.png',
+        link: 'devis.html',
+        category: 'numerisation',
+        badge: 'Express',
+        badgeColor: 'bg-green-500',
+        features: ['Haute résolution', 'Envoi email', 'PDF & JPG']
+      },
+      {
+        id: 'chemise_rabat',
+        title: 'Chemise à Rabat',
+        desc: 'Chemises personnalisées avec votre logo et vos couleurs d\'entreprise. Carton rigide, format A4, pochettes incluses.',
+        price: '20 €',
+        priceNum: 20,
+        image: 'photo1.png',
+        link: 'impression_chemise_rabat.html',
+        category: 'produit',
+        badge: 'Premium',
+        badgeColor: 'bg-purple-600',
+        features: ['Personnalisable', 'Carton rigide', 'Pochettes']
+      }
+    ];
+
+    items.forEach(function(item) { if (!(item.id in likeStore)) likeStore[item.id] = 0; });
+
+    var currentFilter = 'all';
+    var currentSort = 'popular';
+    var grid = document.getElementById('showcaseGrid');
+
+    function getTotalLikes() {
+      var total = 0;
+      for (var key in likeStore) total += (likeStore[key] || 0);
+      return total;
+    }
+
+    function getFilteredSorted() {
+      var filtered = items.filter(function(item) {
+        return currentFilter === 'all' || item.category === currentFilter;
+      });
+
+      filtered.sort(function(a, b) {
+        switch(currentSort) {
+          case 'popular': return (likeStore[b.id]||0) - (likeStore[a.id]||0);
+          case 'price-asc': return a.priceNum - b.priceNum;
+          case 'price-desc': return b.priceNum - a.priceNum;
+          case 'name': return a.title.localeCompare(b.title);
+          default: return 0;
+        }
+      });
+
+      return filtered;
+    }
+
+    function renderCards() {
+      var filtered = getFilteredSorted();
+      grid.innerHTML = '';
+      document.getElementById('resultCount').textContent = filtered.length + ' service' + (filtered.length > 1 ? 's' : '');
+      document.getElementById('statLikes').textContent = getTotalLikes();
+
+      filtered.forEach(function(item, index) {
+        var card = document.createElement('div');
+        card.className = 'showcase-card bg-white rounded-2xl border border-gray-200 overflow-hidden fade-in';
+        card.style.animationDelay = (index * 0.1) + 's';
+
+        var likes = likeStore[item.id] || 0;
+        var isLiked = false;
+        try { isLiked = JSON.parse(sessionStorage.getItem('liked_' + item.id) || 'false'); } catch(e) {}
+
+        var featuresHtml = '';
+        item.features.forEach(function(f) {
+          featuresHtml += '<span class="inline-block bg-gray-100 text-gray-600 text-xs font-medium px-2.5 py-1 rounded-lg">' + f + '</span>';
+        });
+
+        card.innerHTML =
+          '<div class="flex flex-col md:flex-row">' +
+            '<div class="relative md:w-2/5 h-56 md:h-auto overflow-hidden">' +
+              '<img src="' + item.image + '" alt="' + item.title + '" class="w-full h-full object-cover" loading="lazy">' +
+              '<span class="absolute top-3 left-3 ' + item.badgeColor + ' text-white text-xs font-bold px-3 py-1 rounded-full">' + item.badge + '</span>' +
+              '<div class="absolute bottom-3 right-3 flex items-center gap-2">' +
+                '<button type="button" class="like-btn w-10 h-10 rounded-full bg-white/90 shadow-md flex items-center justify-center text-lg hover:bg-red-50 transition-colors' + (isLiked ? ' text-red-500' : ' text-gray-400') + '" data-id="' + item.id + '" aria-label="J\'aime ' + item.title + '">' +
+                  (isLiked ? '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/></svg>'
+                         : '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>') +
+                '</button>' +
+                '<span class="bg-white/90 text-gray-700 text-xs font-bold px-2.5 py-1 rounded-full shadow-md">' + likes + '</span>' +
+              '</div>' +
+            '</div>' +
+            '<div class="md:w-3/5 p-6 flex flex-col justify-between">' +
+              '<div>' +
+                '<h3 class="text-xl font-extrabold mb-2">' + item.title + '</h3>' +
+                '<p class="text-gray-500 text-sm leading-relaxed mb-4">' + item.desc + '</p>' +
+                '<div class="flex flex-wrap gap-1.5 mb-4">' + featuresHtml + '</div>' +
+              '</div>' +
+              '<div class="flex items-center justify-between pt-4 border-t border-gray-100">' +
+                '<div>' +
+                  '<div class="text-xs text-gray-400 uppercase tracking-wider font-bold">Prix</div>' +
+                  '<div class="text-xl font-extrabold text-blue-600">' + item.price + '</div>' +
+                '</div>' +
+                '<a href="' + item.link + '" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-colors duration-200">' +
+                  'Voir le détail' +
+                '</a>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+
+        grid.appendChild(card);
+      });
+
+      // Attach like handlers
+      document.querySelectorAll('.like-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var id = this.dataset.id;
+          likeStore[id] = (likeStore[id] || 0) + 1;
+          try {
+            localStorage.setItem('reelLikes', JSON.stringify(likeStore));
+            sessionStorage.setItem('liked_' + id, 'true');
+          } catch(e) {}
+          this.classList.add('like-anim');
+          renderCards();
+        });
+      });
+    }
+
+    // Tab filtering
+    document.querySelectorAll('.filter-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.filter-tab').forEach(function(t) {
+          t.classList.remove('tab-active');
+        });
+        this.classList.add('tab-active');
+        currentFilter = this.dataset.filter;
+        renderCards();
+      });
+    });
+
+    // Sort
+    document.getElementById('sortSelect').addEventListener('change', function() {
+      currentSort = this.value;
+      renderCards();
+    });
+
+    try { localStorage.setItem('reelLikes', JSON.stringify(likeStore)); } catch(e) {}
+    renderCards();
+  });
+  </script>
 </body>
 </html>
